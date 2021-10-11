@@ -1,6 +1,7 @@
 ---
 docId: "customcomponent"
 sidebar_position: 10
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/customization/custom-component.md
 ---
 
 # Custom Component

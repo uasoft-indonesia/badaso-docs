@@ -1,9 +1,10 @@
 ---
 docId: "rolepermission"
 sidebar_position: 3
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/core-concept/role-and-permission.md
 ---
 
-# Role And Permission
+# User, Role And Permission
 
 ## CRUD Generated
 

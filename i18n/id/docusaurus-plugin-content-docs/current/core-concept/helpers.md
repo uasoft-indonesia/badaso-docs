@@ -1,9 +1,10 @@
 ---
 docId: "helpers"
 sidebar_position: 6
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/core-concept/helpers.md
 ---
 
-# Helpers
+# Helper References
 
 ## Javascript
 

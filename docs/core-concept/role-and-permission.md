@@ -3,7 +3,7 @@ docId: "rolepermission"
 sidebar_position: 3
 ---
 
-# Role And Permission
+# User, Role And Permission
 
 ## CRUD Generated
 
