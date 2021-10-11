@@ -15,6 +15,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     organizationName: "facebook", // Usually your GitHub org/user name.
     projectName: "badaso-docs", // Usually your repo name.
 
+    i18n: {
+      defaultLocale: "en",
+      locales: ["en", "id"],
+    },
+
     presets: [
       [
         "@docusaurus/preset-classic",
@@ -57,6 +62,11 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           items: [
             {
               type: "search",
+              position: "right",
+            },
+
+            {
+              type: "localeDropdown",
               position: "right",
             },
 
