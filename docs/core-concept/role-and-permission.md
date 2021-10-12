@@ -43,6 +43,33 @@ The following display is a display of role management features, this feature is 
 
 ![Docusaurus logo](/img/permission-management.png)
 
+There are 2 kind of permission helpers at badaso :
+
+1. Generated CRUD Permission
+
+    This permission is used to validating user to access the feature of generated CRUD scope.
+
+    ```bash
+    isAllowedToModifyGeneratedCRUD('browse', dataType)
+    isAllowedToModifyGeneratedCRUD('add', dataType)
+    isAllowedToModifyGeneratedCRUD('edit', dataType)
+    isAllowedToModifyGeneratedCRUD('delete', dataType)
+    isAllowedToModifyGeneratedCRUD('maintenance', dataType)
+    isAllowedToModifyGeneratedCRUD('read', dataType)
+    ```
+
+2. CRUD Permission
+
+    This perimission is related to user permission to access the feature of customized page and CRUD activity.
+
+    ```bash
+    isAllowed('browse_crud_data')
+    isAllowed('delete_crud_data')
+    isAllowed('add_crud_data')
+    isAllowed('edit_crud_data')
+    isAllowed('read_crud_data')
+    ```
+
 ## User Role Management
 
 The following display is a display of role management features, this feature is used to determine what role will be used on the system, by default there is only 1, namely Administrator.

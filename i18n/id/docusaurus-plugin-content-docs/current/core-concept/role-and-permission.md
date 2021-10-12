@@ -44,6 +44,33 @@ Manajemen permission merupakan fitur untuk mengelola permission atau CRUD permis
 
 ![Docusaurus logo](/img/permission-management.png)
 
+Terdapat 2 jenis permission helper di badaso, yaitu :
+
+1. Generated CRUD Permission
+
+    Permission ini digunakan untuk memvalidasi user untuk mengakses fitur dalam ruang lingkup CRUD yang dibuat secara otomatis.
+
+    ```bash
+    isAllowedToModifyGeneratedCRUD('browse', dataType)
+    isAllowedToModifyGeneratedCRUD('add', dataType)
+    isAllowedToModifyGeneratedCRUD('edit', dataType)
+    isAllowedToModifyGeneratedCRUD('delete', dataType)
+    isAllowedToModifyGeneratedCRUD('maintenance', dataType)
+    isAllowedToModifyGeneratedCRUD('read', dataType)
+    ```
+
+2. CRUD Permission
+
+    Permission ini berhubungan dengan hak akses user utk mengakses fitur sebuah halaman yang dibuat sendiri secara custom dan izin untuk membuat, membaca, mengubah, dan menghapus data di halaman tersebut.
+
+    ```bash
+    isAllowed('browse_crud_data')
+    isAllowed('delete_crud_data')
+    isAllowed('add_crud_data')
+    isAllowed('edit_crud_data')
+    isAllowed('read_crud_data')
+    ```
+
 ## Manajemen User Role
 
 Setiap user dapat memiliki minimal 1 atau lebih role. Berikut merupakan tampilan dari manajemen role untuk user.
@@ -55,3 +82,7 @@ Setiap user dapat memiliki minimal 1 atau lebih role. Berikut merupakan tampilan
 Setiap wewenang memiliki permission. Berikut merupakan tampilan dari manajemen role permission.
 
 ![Docusaurus logo](/img/role-permission-management.png)
+
+
+
+
