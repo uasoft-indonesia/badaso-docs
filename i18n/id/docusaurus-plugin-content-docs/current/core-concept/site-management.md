@@ -4,7 +4,7 @@ sidebar_position: 5
 custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/core-concept/site-management.md
 ---
 
-# Site Management
+# Konfigurasi
 
 Pada fitur manajemen situs, user dapat mengubah informasi mengenai situs yang menggunakan Badaso. Informasi yang dapat diubah meliputi:
 
@@ -17,4 +17,4 @@ Pada fitur manajemen situs, user dapat mengubah informasi mengenai situs yang me
 - Header Text Color
 - Should verify email after register
 
-![Docusaurus logo](/img/site-management.png)
+![Docusaurus logo](/img/configuration.png)

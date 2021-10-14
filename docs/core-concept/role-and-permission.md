@@ -124,7 +124,7 @@ There are 2 kind of permission helpers at badaso :
 
     ### Example
 
-    For example, you will create a broadcast with `badaso-dropdown-item` component that used to **broadcast** something from `browse.vue`, but you want to restrict the permission to some user. Just add it to your component :
+    For example, you will create a broadcast message with `badaso-dropdown-item` component that used to **broadcast** something from `browse.vue`, but you want to restrict the permission to some user. Just add this code to your component :
 
     ```bash title="browse.vue"
     <badaso-dropdown-item
@@ -137,7 +137,7 @@ There are 2 kind of permission helpers at badaso :
     >
     ```
 
-    What if you will make a permission for your **broadcast** named `broadcast.vue`? Just add it to your code:
+    What if you will make a permission for your **broadcast** named `broadcast.vue`? Just add this to your code:
 
     ```bash title="edit.vue"
     <template>

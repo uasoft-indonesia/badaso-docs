@@ -34,10 +34,10 @@ On this page you can create a new table. The following is a breakdown of the ava
 - `Field Name`: Input for the field names in the new table. This input only allows alphanumeric and underscore characters.
 - `Field Type`: Input for the type of field in the new table.
 - `Length/Value`: Input for length (varchar, char) or value (set, enum).
-    - This field is required if the field type is varchar, char, set or enum.
-    - If the field type is varchar or char, the input value must be an integer or number.
-    - If the field type is enum or set, the input value must be an array with a comma separator (no spaces).
-    - If the field type is an integer, big integer, float or other then this input can function as a decimal point with a comma separator (without spaces).
+  - This field is required if the field type is varchar, char, set or enum.
+  - If the field type is varchar or char, the input value must be an integer or number.
+  - If the field type is enum or set, the input value must be an array with a comma separator (no spaces).
+  - If the field type is an integer, big integer, float or other then this input can function as a decimal point with a comma separator (without spaces).
 - `Auto Increment`: Input for auto increment on the table. Only one auto increment on the table is allowed. If the field type is empty when checking auto increment, then the field type will automatically becomes big integer and the index field becomes primary.
 - `Nullable`: Input for a nullable field.
 - `Default`: Input for the default field.
@@ -46,6 +46,34 @@ On this page you can create a new table. The following is a breakdown of the ava
 - `Attribute`: Input for field attributes.
 
 ![Docusaurus logo](/img/add-table.png)
+
+## Create Relationship Table
+
+On this page you can create a new relationship table. The following is a breakdown of the relation fields.
+
+- `Field Name`: Input for the field names in the new relation table. You can give this field name with `destination table_id`. For example, you want to make a relation from `book_categories` table to `books` table. Just named this field with `book_category_id` at `books` table.
+
+- `Field Type`: Input for the type of field in the new relation table. Make sure the field type is same like what you made at your destination table. Usually, it setted **Big Integer**.
+
+- `Length/Value` : Just set it blank as default.
+
+- `Auto Increment`: Don't check this box.
+
+- `Nullable`: Input for a nullable field. If this field allow to send a null data, you can check this box. If this field is restricted with null data, then you don't need to check this box.
+
+- `Unsigned` : Check this box.
+
+- `Index` : Set it **foreign** then the relation button will show up on the right side of delete button and you can click into it.
+
+- `Relationship`
+  - `table` : Select a destination table to make a relation.
+  - `field` : Select the field that you want to make a relation.
+  - `On Delete` : Select the delete action that you want after this field is related.
+  - `On Update` : Select the update action that you want after this field is related.
+
+![Docusaurus logo](/img/relation-db.png)
+
+![Docusaurus logo](/img/relation.png)
 
 ## Alter Table
 

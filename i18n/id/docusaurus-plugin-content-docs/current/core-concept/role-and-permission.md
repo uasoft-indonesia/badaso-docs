@@ -48,80 +48,108 @@ Terdapat 2 jenis permission helper di badaso, yaitu :
 
 1. Permission untuk Generated CRUD
 
-    Permission ini digunakan untuk memvalidasi user untuk mengakses fitur dalam ruang lingkup CRUD yang dibuat secara otomatis.
+   Permission ini digunakan untuk memvalidasi user untuk mengakses fitur dalam ruang lingkup CRUD yang dibuat secara otomatis.
 
-    - `isAllowedToModifyGeneratedCRUD('browse', dataType)` : 
+   - `isAllowedToModifyGeneratedCRUD('browse', dataType)` :
 
-        Apakah user dapat menelusuri daftar generated CRUD atau tidak.
+     Apakah user dapat menelusuri daftar generated CRUD atau tidak.
 
-    - `isAllowedToModifyGeneratedCRUD('add', dataType)` : 
+   - `isAllowedToModifyGeneratedCRUD('add', dataType)` :
 
-        Apakah user dapat menambahkan generated CRUD atau tidak.
+     Apakah user dapat menambahkan generated CRUD atau tidak.
 
-    - `isAllowedToModifyGeneratedCRUD('edit', dataType)` :
+   - `isAllowedToModifyGeneratedCRUD('edit', dataType)` :
 
-        Apakah user dapat mengubah pengaturan generated CRUD atau tidak.
+     Apakah user dapat mengubah pengaturan generated CRUD atau tidak.
 
-    - `isAllowedToModifyGeneratedCRUD('delete', dataType)` :
+   - `isAllowedToModifyGeneratedCRUD('delete', dataType)` :
 
-        Apakah user dapat menghapus generated CRUD atau tidak.
+     Apakah user dapat menghapus generated CRUD atau tidak.
 
-    - `isAllowedToModifyGeneratedCRUD('maintenance', dataType)` : 
+   - `isAllowedToModifyGeneratedCRUD('maintenance', dataType)` :
 
-        Apakah user dapat mengubah status generated CRUD menjadi 'maintenance' atau tidak.
+     Apakah user dapat mengubah status generated CRUD menjadi 'maintenance' atau tidak.
 
-    - `isAllowedToModifyGeneratedCRUD('read', dataType)` : 
+   - `isAllowedToModifyGeneratedCRUD('read', dataType)` :
 
-        Apakah user dapat melihat generated CRUD atau tidak.
+     Apakah user dapat melihat generated CRUD atau tidak.
 
-    ### Example
+   ### Contoh
 
-    Sebagai contoh, kamu akan membuat sebuah komponen untuk menambah data menggunakan `badaso-dropdown-item` untuk **CRUD Management yang dibuat dengan cara kustom** yang akan membawa user untuk menambahkan CRUD pada sebuah tabel, tetapi kamu ingin membatasi hak akses untuk hal itu kepada beberapa user. Coba tambahkan kode berikut ke dalam komponen-mu :
+   Sebagai contoh, kamu akan membuat sebuah komponen untuk menambah data menggunakan `badaso-dropdown-item` untuk **CRUD Management yang dibuat dengan cara kustom** yang akan membawa user untuk menambahkan CRUD pada sebuah tabel, tetapi kamu ingin membatasi hak akses untuk hal itu kepada beberapa user. Coba tambahkan kode berikut ke dalam komponen-mu :
 
-    ```bash title="browse.vue"
-    <badaso-dropdown-item
-        icon="add"
-        :to="{ name: 'CrudGeneratedAdd' }"
-        v-if="isCanAdd && $helper.isAllowedToModifyGeneratedCRUD('add', dataType)"
-    >
-    ```
+   ```bash title="browse.vue"
+   <badaso-dropdown-item
+       icon="add"
+       :to="{ name: 'CrudGeneratedAdd' }"
+       v-if="isCanAdd && $helper.isAllowedToModifyGeneratedCRUD('add', dataType)"
+   >
+   ```
 
-    Bagaimana jika kamu ingin membuat permission untuk **CRUD Management yang dibuat dengan cara kustom** dengan nama file `edit.vue`? Coba tambahkan kode berikut ke dalam komponen-mu :
+   Bagaimana jika kamu ingin membuat permission untuk **CRUD Management yang dibuat dengan cara kustom** dengan nama file `edit.vue`? Coba tambahkan kode berikut ke dalam komponen-mu :
 
-    ```bash title="edit.vue"
-    <template>
-        <div>
-            <badaso-breadcrumb-row></badaso-breadcrumb-row>
-            <vs-row v-if="$helper.isAllowedToModifyGeneratedCRUD('edit', dataType)">
-                // your code
-            </vs-row>
-        </div>
-    <template>
-    ```
+   ```bash title="edit.vue"
+   <template>
+       <div>
+           <badaso-breadcrumb-row></badaso-breadcrumb-row>
+           <vs-row v-if="$helper.isAllowedToModifyGeneratedCRUD('edit', dataType)">
+               // your code
+           </vs-row>
+       </div>
+   <template>
+   ```
 
 2. Permission untuk fitur kustom
 
-    Permission ini berhubungan dengan hak akses user utk mengakses fitur sebuah halaman yang dibuat sendiri secara custom dan izin untuk membuat, membaca, mengubah, dan menghapus data di halaman tersebut.
+   Permission ini berhubungan dengan hak akses user utk mengakses fitur sebuah halaman yang dibuat sendiri secara custom dan izin untuk membuat, membaca, mengubah, dan menghapus data di halaman tersebut.
 
-    - `isAllowed('browse_crud_data')`
+   - `isAllowed('browse_crud_data')`
 
-        Apakah user dapat menelusuri data dari .
+     Apakah user dapat menelusuri data dari .
 
-    - `isAllowed('delete_crud_data')`
+   - `isAllowed('delete_crud_data')`
 
-        Whether or not the user may delete some data from a page menu section.
+     Whether or not the user may delete some data from a page menu section.
 
-    - `isAllowed('add_crud_data')`
+   - `isAllowed('add_crud_data')`
 
-        Whether or not the user may add a new data from a page menu section.
+     Whether or not the user may add a new data from a page menu section.
 
-    - `isAllowed('edit_crud_data')`
+   - `isAllowed('edit_crud_data')`
 
-        Whether or not the user may edit a data from a page menu section. 
+     Whether or not the user may edit a data from a page menu section.
 
-    - `isAllowed('read_crud_data')`
+   - `isAllowed('read_crud_data')`
 
-        Whether or not the user may view or see a data from a page menu section.
+     Whether or not the user may view or see a data from a page menu section.
+
+   ### Contoh
+
+   Sebagai contoh, kamu akan membuat pesan broadcast dengan komponen `badaso-dropdown-item` yang digunakan untuk **broadcast** sesuatu dari `browse.vue`, tetapi kamu ingin membadasi hak akses kepada beberapa user. Cukup tambahkan kode ini ke komponen-mu :
+
+   ```bash title="browse.vue"
+    <badaso-dropdown-item
+        icon="edit"
+        v-if="$helper.isAllowed('broadcast')"
+        :to="{
+        name: 'CrudManagementEdit',
+        params: { tableName: data[index].tableName },
+        }"
+    >
+   ```
+
+   Bagaimana jika kamu ingin membuat permission untuk **broadcast** mu yang diberi nama `broadcast.vue`? Cukup tambahkan kode dibawah ini :
+
+   ```bash title="edit.vue"
+   <template>
+       <div>
+           <badaso-breadcrumb-row></badaso-breadcrumb-row>
+           <vs-row v-if="$helper.isAllowed('broadcast')">
+               // your code
+           </vs-row>
+       </div>
+   <template>
+   ```
 
 ## Manajemen User Role
 
@@ -134,7 +162,3 @@ Setiap user dapat memiliki minimal 1 atau lebih role. Berikut merupakan tampilan
 Setiap wewenang memiliki permission. Berikut merupakan tampilan dari manajemen role permission.
 
 ![Docusaurus logo](/img/role-permission-management.png)
-
-
-
-
