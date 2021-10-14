@@ -45,29 +45,109 @@ The following display is a display of role management features, this feature is 
 
 There are 2 kind of permission helpers at badaso :
 
-1. Generated CRUD Permission
+1. Permission for Generated CRUD
 
     This permission is used to validating user to access the feature of generated CRUD scope.
 
-    ```bash
-    isAllowedToModifyGeneratedCRUD('browse', dataType)
-    isAllowedToModifyGeneratedCRUD('add', dataType)
-    isAllowedToModifyGeneratedCRUD('edit', dataType)
-    isAllowedToModifyGeneratedCRUD('delete', dataType)
-    isAllowedToModifyGeneratedCRUD('maintenance', dataType)
-    isAllowedToModifyGeneratedCRUD('read', dataType)
+    - `isAllowedToModifyGeneratedCRUD('browse', dataType)` : 
+
+        Whether or not the user may browse the generated CRUD list.
+
+    - `isAllowedToModifyGeneratedCRUD('add', dataType)` : 
+
+        Whether or not the user can add a new generated CRUD for a table.
+
+    - `isAllowedToModifyGeneratedCRUD('edit', dataType)` :
+
+        Whether or not the user can edit the settings from a generated CRUD.
+
+    - `isAllowedToModifyGeneratedCRUD('delete', dataType)` :
+
+        Whether or not the user can delete some generated CRUD.
+
+    - `isAllowedToModifyGeneratedCRUD('maintenance', dataType)` : 
+
+        Whether or not the user can set a status to 'maintenance' the generated CRUD.
+
+    - `isAllowedToModifyGeneratedCRUD('read', dataType)` : 
+
+        Whether or not the user can view or see the generated CRUD.
+
+    ### Example
+
+    For example, you will create an add/create component with `badaso-dropdown-item` component for your **customized CRUD Management** that bring a user to add CRUD for a table, but you want to restrict the permission to some user. Just add it to your component :
+
+    ```bash title="browse.vue"
+    <badaso-dropdown-item
+        icon="add"
+        :to="{ name: 'CrudGeneratedAdd' }"
+        v-if="isCanAdd && $helper.isAllowedToModifyGeneratedCRUD('add', dataType)"
+    >
     ```
 
-2. CRUD Permission
+    What if you will make a permission for your **customized edit CRUD Management** named `edit.vue`? Just add it to your code:
+
+    ```bash title="edit.vue"
+    <template>
+        <div>
+            <badaso-breadcrumb-row></badaso-breadcrumb-row>
+            <vs-row v-if="$helper.isAllowedToModifyGeneratedCRUD('edit', dataType)">
+                // your code
+            </vs-row>
+        </div>
+    <template>
+    ```
+
+2. Permission for custom feature
 
     This perimission is related to user permission to access the feature of customized page and CRUD activity.
 
-    ```bash
-    isAllowed('browse_crud_data')
-    isAllowed('delete_crud_data')
-    isAllowed('add_crud_data')
-    isAllowed('edit_crud_data')
-    isAllowed('read_crud_data')
+    - `isAllowed('browse_crud_data')`
+
+        Whether or not the user may browse the data from a page menu section.
+
+    - `isAllowed('delete_crud_data')`
+
+        Whether or not the user may delete some data from a page menu section.
+
+    - `isAllowed('add_crud_data')`
+
+        Whether or not the user may add a new data from a page menu section.
+
+    - `isAllowed('edit_crud_data')`
+
+        Whether or not the user may edit a data from a page menu section.
+
+    - `isAllowed('read_crud_data')`
+
+        Whether or not the user may view or see a data from a page menu section.
+
+    ### Example
+
+    For example, you will create a broadcast with `badaso-dropdown-item` component that used to **broadcast** something from `browse.vue`, but you want to restrict the permission to some user. Just add it to your component :
+
+    ```bash title="browse.vue"
+    <badaso-dropdown-item
+        icon="edit"
+        v-if="$helper.isAllowed('broadcast')"
+        :to="{
+        name: 'CrudManagementEdit',
+        params: { tableName: data[index].tableName },
+        }"
+    >
+    ```
+
+    What if you will make a permission for your **broadcast** named `broadcast.vue`? Just add it to your code:
+
+    ```bash title="edit.vue"
+    <template>
+        <div>
+            <badaso-breadcrumb-row></badaso-breadcrumb-row>
+            <vs-row v-if="$helper.isAllowed('broadcast')">
+                // your code
+            </vs-row>
+        </div>
+    <template>
     ```
 
 ## User Role Management
