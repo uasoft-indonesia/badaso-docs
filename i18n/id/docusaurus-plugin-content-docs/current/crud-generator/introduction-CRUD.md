@@ -1,5 +1,6 @@
 ---
 docId: "introductioncrud"
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/crud-generator/introduction-CRUD.md
 ---
 
 # Introduction

@@ -1,6 +1,7 @@
 ---
 docId: "customwidget"
 sidebar_position: 6
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/customization/custom-widget.md
 ---
 
 # Custom Widget
@@ -44,6 +45,8 @@ class ExampleWidget implements WidgetInterface
         return [
             'label' => 'Label', /** Fill in the label as desired **/
             'value' => 0,       /** Fill in the value as desired **/
+            'icon' => 'lock', /** Fill in the icon as desired from material icon **/
+            'max' => 70, /** Fill in the value as desired **/
         ];
     }
 }

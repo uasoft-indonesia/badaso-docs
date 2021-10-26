@@ -3,7 +3,7 @@ docId: "helpers"
 sidebar_position: 6
 ---
 
-# Helpers
+# Helper References
 
 ## Javascript
 

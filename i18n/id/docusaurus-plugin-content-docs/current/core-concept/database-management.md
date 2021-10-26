@@ -1,6 +1,7 @@
 ---
 docId: "databasemanagement"
 sidebar_position: 9
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/core-concept/database-management.md
 ---
 
 # Database Management
@@ -47,9 +48,35 @@ Pada halaman ini Anda dapat membuat tabel baru. Berikut rincian dari field yang 
 
 ![Docusaurus logo](/img/add-table.png)
 
-## Alter Table
+## Membuat Relasi Tabel
 
-## Alter Tabel
+Pada halaman ini Anda dapat membuat tabel baru. Berikut rincian dari field yang berelasi.
+
+- `Field Name`: Input untuk nama field pada tabel baru yang berelasi. Kamu bisa mengisinya dengan `destination table_id`. Sebagai contoh, kamu ingin membuat relasi dari tabel `book_categories` ke tabel `books`. Cukup isi nama field ini dengan `book_category_id` pada tabel `books`.
+
+- `Field Type`: Input untuk tipe field pada tabel baru yang berelasi. Pastika tipe field pada form ini sama dengan tipe field yang telah kamu buat pada tabel tujuan. Biasanya, ini diisi **Big Integer**.
+
+- `Length/Value` : Biarkan field ini kosong.
+
+- `Auto Increment`: Jangan centang kotak ini.
+
+- `Nullable`: Input untuk nullable field. Jika field ini boleh berisi data kosong, maka centang kotak nullable ini. Jika field ini harus berisi data, maka jangan centang kotak ini
+
+- `Unsigned` : Centang kotak ini.
+
+- `Index` : Atur ini sebagai **foreign** lalu tombol relasi akan tampil disebelah kanan tombol hapus dan kamu bisa mengklik tombol ini.
+
+- `Relationship`
+  - `table` : Pilih tabel tujuan yang akan dihubungkan.
+  - `field` : Pilih field yang diinginkan untuk membuat relasi.
+  - `On Delete` : Pilih aksi hapus yang diinginkan setelah field ini berelasi.
+  - `On Update` : Pilih aksi update yang diinginkan setelah field ini berelasi.
+
+![Docusaurus logo](/img/relation-db.png)
+
+![Docusaurus logo](/img/relation.png)
+
+## Alter Table
 
 Pada halaman ini Anda dapat membuat perubahaan pada tabel Anda seperti menambahkan field, menghapus field, mengubah rincian field dan mengubah nama table. Rincian field sama seperti pada Create Table.
 

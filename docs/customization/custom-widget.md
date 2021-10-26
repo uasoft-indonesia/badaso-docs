@@ -10,6 +10,7 @@ Badaso supports creating and displaying widgets on the dashboard page. Badaso al
 ![Docusaurus logo](/img/widget.png)
 
 ## Add Widget
+
 - Create a php file in the `app\Widgets` folder (if the folder does not exist, then create a folder first). Then fill in the file with the following template.
 
 ```bash
@@ -37,18 +38,21 @@ class ExampleWidget implements WidgetInterface
     {
         return 'browse_permissions';
     }
-    
+
     public function run($params = null)
     {
         return [
             'label' => 'Label', /** Fill in the label as desired **/
             'value' => 0,       /** Fill in the value as desired **/
+            'icon' => 'lock', /** Fill in the icon as desired from material icon **/
+            'max' => 70, /** Fill in the value as desired **/
         ];
     }
 }
 ```
 
-- Then add the file or class you just created to the configuration file config\badaso.php.
+- Then add the file or class you just created to the configuration file `config\badaso.php`.
+
 ```bash
 <?php
 

@@ -1,6 +1,7 @@
 ---
 docId: "analytics"
 sidebar_position: 14
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/core-concept/push-notification.md
 ---
 
 # Push Notification

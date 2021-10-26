@@ -3,7 +3,7 @@ docId: "sitemanagement"
 sidebar_position: 5
 ---
 
-# Site Management
+# Configuration
 
 In the site management feature, users can change information about sites that use Badaso. Information that can be changed includes:
 
@@ -16,4 +16,4 @@ In the site management feature, users can change information about sites that us
 - Header Text Color
 - Should verify email after register
 
-![Docusaurus logo](/img/site-management.png)
+![Docusaurus logo](/img/configuration.png)

@@ -1,6 +1,7 @@
 ---
 docId: "overridingpage"
 sidebar_position: 3
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/customization/overriding-page.md
 ---
 
 # Overriding Page

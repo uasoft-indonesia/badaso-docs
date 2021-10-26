@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 docId: "prerequisite"
+custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/getting-started/prerequisite.md
 ---
 
 # Persyaratan
