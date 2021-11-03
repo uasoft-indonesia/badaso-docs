@@ -6,13 +6,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 (
   module.exports = {
     title: "Badaso Documentation",
-    tagline: "Dinosaurs are cool",
-    url: "https://your-docusaurus-test-site.com",
+    tagline: "Badaso official documentation",
+    url: "https://badaso-docs.uatech.co.id",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.png",
-    organizationName: "facebook", // Usually your GitHub org/user name.
+    organizationName: "uasoft-indonesia", // Usually your GitHub org/user name.
     projectName: "badaso-docs", // Usually your repo name.
 
     i18n: {
@@ -50,12 +50,13 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
       ({
         algolia: {
           contextualSearch: true,
-          apiKey: "a790a1d5087c0b331c354501a4f782a4",
-          indexName: "index",
+          appId: 'F9ZREGGLRC',
+          apiKey: "b149e29a4ae24941c2e50cd450311c9d",
+          indexName: "badaso-docs",
         },
         navbar: {
           logo: {
-            alt: "My Site Logo",
+            alt: "Badaso logo",
             src: "img/full-logo-badaso.png",
             srcDark: "img/full-logo-badaso-background-black.png",
           },
@@ -85,7 +86,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
               items: [
                 {
                   label: "Tutorial Video",
-                  to: "/",
+                  to: "https://www.youtube.com/playlist?list=PLO-UCDr2KEwPZPeQvjLmj-RVfNHycttPl",
                 },
               ],
             },
