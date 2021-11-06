@@ -18,13 +18,13 @@ composer create-project badaso/starter your_project_name
 
 - Kamu dapat menambahkan badaso pada aplikasi laravel kamu dengan perintah berikut ini.
 
-`v2.x` For Laravel 8
+Badaso `v2.x` For Laravel 8
 
 ```bash
 composer require badaso/core
 ```
 
-`v1.x` For Laravel 5,6,7
+Badaso `v1.x` For Laravel 5,6,7
 
 ```bash
 composer require badaso/core:^1.0

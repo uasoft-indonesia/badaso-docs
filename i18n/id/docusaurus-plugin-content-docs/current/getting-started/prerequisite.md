@@ -16,24 +16,25 @@ Sebelum menginstal badaso, pastikan laravel yang kamu pakai didukung oleh badaso
 
 ## PHP
 
+Badaso `v2.x`
+- PHP 8.x
+
+Badaso `v1.x`
 - PHP 7.x
 
 ## Composer
 
 - Composer 2
-- Composer 1
 
 ## Laravel
 
-`v1.x`
+Badaso `v2.x`
+- Laravel 8.x
 
+Badaso `v1.x`
 - Laravel 5.x
 - Laravel 6.x
 - Laravel 7.x
-
-`v1.x`
-
-- Laravel 8.x
 
 ## Node
 
