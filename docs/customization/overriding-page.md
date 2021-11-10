@@ -62,8 +62,8 @@ You can find badaso-pages at
 ```bash
 📦 Your Project
 ┣ 📂 vendor
-┃ ┣ 📂 uasoft-indonesia
-┃ ┃ ┣  📂 badaso
+┃ ┣ 📂 badaso
+┃ ┃ ┣  📂 core
 ┃ ┃ ┃ ┣ 📂 src
 ┃ ┃ ┃ ┃ ┣ 📂 resources
 ┃ ┃ ┃ ┃ ┃ ┣ 📂 js
