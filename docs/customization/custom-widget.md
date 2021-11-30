@@ -45,7 +45,7 @@ class ExampleWidget implements WidgetInterface
             'label' => 'Label', /** Fill in the label as desired **/
             'value' => 0,       /** Fill in the value as desired **/
             'icon' => 'lock', /** Fill in the icon as desired from material icon **/
-            'max' => 70, /** Fill in the value as desired **/
+            'max' => 70, /** Fill in the value as desired (default value is 100) **/
         ];
     }
 }
