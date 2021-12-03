@@ -18,7 +18,7 @@ php artisan make:controller NewController
 
 - Menambahkan extends ke `BadasoBaseController` pada controller yang baru di buat.
 
-```bash
+```bash title="App\Http\Controllers\NewController.php"
 <?php
 
 namespace App\Http\Controllers;
@@ -30,11 +30,11 @@ class NewController extends Uasoft\Badaso\Controllers\BadasoBaseController
 ```
 
 - Menimpa method `BadasoBaseController`. Berikut method yang tersedia.
-
-  - all
+  - browse
   - read
   - edit
   - add
   - delete
 
-- Edit CRUD pada CRUD Management, tambahkan controller yang baru di buat.
+- Edit CRUD yang telah dibuat pada `CRUD Management`, tambahkan controller yang baru di buat.
+![Docusaurus logo](/img/override-controller.png)
