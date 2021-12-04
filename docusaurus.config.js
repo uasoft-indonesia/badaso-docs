@@ -14,7 +14,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
     favicon: "img/favicon.png",
     organizationName: "uasoft-indonesia", // Usually your GitHub org/user name.
     projectName: "badaso-docs", // Usually your repo name.
-
+    trailingSlash: false,
     i18n: {
       defaultLocale: "en",
       locales: ["en", "id"],
