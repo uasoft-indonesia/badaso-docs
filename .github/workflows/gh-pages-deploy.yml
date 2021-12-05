@@ -1,4 +1,4 @@
-name: gh-pages-deploy
+name: Deploy to Github Pages
 
 on:
   pull_request:
