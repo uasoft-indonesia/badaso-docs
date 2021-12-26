@@ -9,7 +9,7 @@ Every CRUD generated through the CRUD generator will use the same controller. th
 
 To create a new controller and use it in the generated CRUD (overridding), there are several steps that need to be done.
 
-- Create a laravel controller as usual.
+- Create the new controller for overriding.
 ```bash 
 php artisan make:controller NewController
 ```
@@ -19,20 +19,36 @@ php artisan make:controller NewController
 <?php
 
 namespace App\Http\Controllers;
-use Uasoft\Badaso\Helpers\ApiResponse;
 
-class NewController extends Uasoft\Badaso\Controllers\BadasoBaseController
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Uasoft\Badaso\Helpers\GetData;
+use Uasoft\Badaso\Models\DataType;
+use Uasoft\Badaso\Helpers\ApiResponse;
+use Uasoft\Badaso\Controllers\BadasoBaseController;
+use Uasoft\Badaso\Helpers\Firebase\FCMNotification;
+
+class NewController extends BadasoBaseController
 {
-    //...
+    // Add new method or override the existing method
 }
 ```
 
-- Overrides the `BadasoBaseController` method. The following methods are available for overrides.
+- The following methods are available for overrides.
     - browse
     - read
     - edit
     - add
     - delete
+    - restore
+    - deleteMultiple
+    - restoreMultiple
+    - sort
+    - setMaintenanceState
 
-- Edit the new overriden CRUD at `CRUD Management`, add the new controller created.
+  You can check more detail on `vendor/badaso/core/src/Controllers/BadasoBaseController`
+
+- Change the controller of CRUD that you wanna to override on "Edit related CRUD > Advanced Settings > Controller Name" with the new controller `App\Http\Controllers\NewController`
+
 ![Docusaurus logo](/img/override-controller.png)
