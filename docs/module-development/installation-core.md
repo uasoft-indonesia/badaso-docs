@@ -16,7 +16,7 @@ $ composer create-project laravel/laravel:^8.0 badaso-develop
 
 ```md title="directory structure"
 badaso development
-package
+packages
 badaso /** Directory core and module pool **/
 ```
 
@@ -30,7 +30,7 @@ The following is the result of the final directory structure after clone package
 
 ```md title="directory structure"
 badaso development
-package
+packages
 badaso
 core
 ...
