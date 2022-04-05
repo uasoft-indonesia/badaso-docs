@@ -5,53 +5,63 @@ docId: 'installation'
 
 # Installation
 
-## On Fresh Project
-- Create project via composer
+## On Fresh Project (recommended)
+Create project via curl
+
+:::info
+Install & enable docker first on your local system before running command for docker mode installation (recommended)
+:::
+
 ```bash
-composer create-project badaso/starter your_project_name
+curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 ```
+If you using docker mode installation, your application will automatically serve by docker.
+
+If you don't using docker mode installation, you need to migrate and seed the database first on your local system.
+
+:::info
+Badaso using laravel sail for docker configuration, please read more about sail [here](https://laravel.com/docs/9.x/sail)
+:::
 
 ## On existing project
-- You can install badaso on your existing application easily.
+You can install badaso on your existing application easily.
 
-Badaso `v2.x` For Laravel 8
+Badaso `v2.x` For Laravel 8 & 9
 ```bash
 composer require badaso/core
  ```
 
-Badaso `v1.x` For Laravel 5,6,7
+Badaso `v1.x` For Laravel 5,6,7 (not recommended)
 ```bash
 composer require badaso/core:^1.0
  ```
 
-- Run the following commands to update dependencies in package.json, webpack and publish vendor provider.
+Run the following commands to install badaso
 ```bash
 php artisan badaso:setup
  ```
 
-## Next setup (for fresh project or existing project)
-
-- Run database migration.
+Run database migration.
 ```bash
 php artisan migrate
  ```
 
-- [optional] Symlink the storage folder if not yet
+[optional] Symlink the storage folder if not yet
 ```bash
 php artisan storage:link
  ```
 
-- For laravel 8 and existing project, change filesystem to public (**[readmore for cloud](/core-concept/storage)**)
+For laravel 8 and existing project, change filesystem to public (**[readmore for cloud](/core-concept/storage)**)
 ```bash
 FILESYSTEM_DRIVER=public
  ```
 
-- Run composer autoload and seeders
+Run composer autoload and seeders
 ```bash
 composer dump-autoload
  ```
 
-`v2.x` For Laravel 8
+`v2.x` For Laravel 8 & 9
 ```bash
 php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
 ```
@@ -61,26 +71,18 @@ php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
 php artisan db:seed --class=BadasoSeeder
 ```
 
-- Create an admin account by typing the following command.
+Create an admin account by typing the following command.
 ```bash
 php artisan badaso:admin your@email.com --create
 ```
 
-- Run the following command to install all of dependencies.
+Run the following command to install all of dependencies.
 ```bash
-yarn
-yarn dev
+npm install
+npm run dev
 ```
 
-- Run your laravel project and access /badaso-dashboard path on your laravel.
+Run your laravel project and access /badaso-dashboard path on your laravel.
 ```bash
-# via local machine
 php artisan serve
-
-# or
-
-# via docker (for badaso/starter or you can set your docker on your existing project)
-docker compose build
-docker compose up -d
-```
 

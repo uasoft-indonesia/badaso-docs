@@ -30,6 +30,7 @@ Badaso `v1.x`
 
 Badaso `v2.x`
 - Laravel 8.x
+- Laravel 9.x
 
 Badaso `v1.x`
 - Laravel 5.x
@@ -38,12 +39,12 @@ Badaso `v1.x`
 
 ## Node
 
-- Node 12.x
+- Node ^14.x
 
 ## NPM
 
-- NPM 6.x
+- NPM ^6.x
 
 ## Yarn
 
-- Yarn 1.22.x
+- Yarn ^1.22.x

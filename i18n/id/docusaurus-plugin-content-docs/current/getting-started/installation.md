@@ -6,19 +6,31 @@ custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/
 
 # Instalasi
 
-## Pada aplikasi baru
+## Pada aplikasi baru (disarankan)
 
-- Buat project laravel yang sudah terinstall badaso menggunakan composer
+Buat project badaso dengan curl
+
+:::info
+Jalankan docker dahulu di sistem anda sebelum menjalankan perintah untuk mode docker (disarankan)
+:::
 
 ```bash
-composer create-project badaso/starter your_project_name
+curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 ```
+
+Jika kamu menggunakan docker, maka aplikasi kamu akan langsung jalan oleh docker.
+
+Jika kamu tidak menggunakan docker, maka kamu perlu menjalankan migrasi dan seeder pada database.
+
+:::info
+Badaso menggunakan laravel sail untuk pengaturan docker, pelajari tentang sail [disini](https://laravel.com/docs/9.x/sail)
+:::
 
 ## Pada aplikasi yang sudah ada
 
 - Kamu dapat menambahkan badaso pada aplikasi laravel kamu dengan perintah berikut ini.
 
-Badaso `v2.x` For Laravel 8
+Badaso `v2.x` For Laravel 8 & 9 (disarankan)
 
 ```bash
 composer require badaso/core
@@ -30,7 +42,7 @@ Badaso `v1.x` For Laravel 5,6,7
 composer require badaso/core:^1.0
 ```
 
-- Jalankan perintah berikut untuk memperbarui dependensi di package.json, webpack, dan publish vendor provider.
+Jalankan perintah berikut untuk memperbarui dependensi di package.json, webpack, dan publish vendor provider.
 
 ```bash
 php artisan badaso:setup
@@ -38,31 +50,31 @@ php artisan badaso:setup
 
 ## Setup selanjutnya (untuk aplikasi baru atau sudah ada)
 
-- Jalankan migrasi database.
+Jalankan migrasi database.
 
 ```bash
 php artisan migrate
 ```
 
-- [opsional] Symlink folder storage jika belum
+[opsional] Symlink folder storage jika belum
 
 ```bash
 php artisan storage:link
 ```
 
-- Untuk Laravel 8 dan proyek yang sudah ada, ubah filesystem driver menjadi `public` (**[readmore for cloud](/core-concept/storage)**)
+Untuk Laravel 8 dan proyek yang sudah ada, ubah filesystem driver menjadi `public` (**[readmore for cloud](/core-concept/storage)**)
 
 ```bash
 FILESYSTEM_DRIVER=public
 ```
 
-- Jalankan composer autoload dan seeder
+Jalankan composer autoload dan seeder
 
 ```bash
 composer dump-autoload
 ```
 
-`v2.x` Untuk Laravel 8
+`v2.x` Untuk Laravel 8 & 9
 
 ```bash
 php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
@@ -83,19 +95,12 @@ php artisan badaso:admin your@email.com --create
 - Install javascript depedency
 
 ```bash
-yarn
-yarn dev
+npm install
+npm run dev
 ```
 
 - Jalankan project laravel dan akses `/badaso-dashboard` di browser untuk mengakses dashboard.
 
 ```bash
-# via local machine
 php artisan serve
-
-# or
-
-# via docker (for badaso/starter or you can set your docker on your existing project)
-docker compose build
-docker compose up -d
 ```
