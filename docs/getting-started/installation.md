@@ -15,7 +15,7 @@ Install & enable docker first on your local system before running command for do
 ```bash
 curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 ```
-If you using docker mode installation, your application will automatically serve by docker.
+If you using docker mode installation, your application will automatically serve by docker on ` localhost:8000`
 
 If you don't using docker mode installation, you need to migrate and seed the database first on your local system.
 

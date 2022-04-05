@@ -18,7 +18,7 @@ Jalankan docker dahulu di sistem anda sebelum menjalankan perintah untuk mode do
 curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 ```
 
-Jika kamu menggunakan docker, maka aplikasi kamu akan langsung jalan oleh docker.
+Jika kamu menggunakan docker, maka aplikasi kamu akan langsung jalan oleh docker pada `localhost:8000`
 
 Jika kamu tidak menggunakan docker, maka kamu perlu menjalankan migrasi dan seeder pada database.
 
