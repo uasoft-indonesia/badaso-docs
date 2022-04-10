@@ -9,7 +9,11 @@ docId: 'installation'
 Create project via curl
 
 :::info
-Install & enable docker first on your local system before running command for docker mode installation (recommended)
+Install & enable docker first on your local system before running command for docker mode installation (recommended). If you not enable docker first, badaso will install without docker.
+
+Make sure these ports are free on your system :8000 :3306 :6379 for smooth installation on docker mode.
+
+Badaso using laravel sail for docker configuration, please read more about sail [here](https://laravel.com/docs/9.x/sail)
 :::
 
 ```bash
@@ -18,10 +22,6 @@ curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 If you using docker mode installation, your application will automatically serve by docker on ` localhost:8000`
 
 If you don't using docker mode installation, you need to migrate and seed the database first on your local system.
-
-:::info
-Badaso using laravel sail for docker configuration, please read more about sail [here](https://laravel.com/docs/9.x/sail)
-:::
 
 ## On existing project
 You can install badaso on your existing application easily.

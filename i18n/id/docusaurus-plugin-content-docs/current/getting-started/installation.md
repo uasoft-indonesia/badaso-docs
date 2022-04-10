@@ -11,7 +11,11 @@ custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/
 Buat project badaso dengan curl
 
 :::info
-Jalankan docker dahulu di sistem anda sebelum menjalankan perintah untuk mode docker (disarankan)
+Jalankan docker dahulu di sistem anda sebelum menjalankan perintah untuk mode docker (disarankan). Jika kamu tidak mengaktifkan docker, maka badaso akan terinstall dengan tanpa docker.
+
+Pastikan port ini tidak digunakan :8000 :3306 :6379 pada saat penginstall di docker mode.
+
+Badaso menggunakan laravel sail untuk pengaturan docker, pelajari tentang sail [disini](https://laravel.com/docs/9.x/sai
 :::
 
 ```bash
@@ -21,10 +25,6 @@ curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 Jika kamu menggunakan docker, maka aplikasi kamu akan langsung jalan oleh docker pada `localhost:8000`
 
 Jika kamu tidak menggunakan docker, maka kamu perlu menjalankan migrasi dan seeder pada database.
-
-:::info
-Badaso menggunakan laravel sail untuk pengaturan docker, pelajari tentang sail [disini](https://laravel.com/docs/9.x/sail)
-:::
 
 ## Pada aplikasi yang sudah ada
 
