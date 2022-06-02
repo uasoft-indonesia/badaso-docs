@@ -13,7 +13,7 @@ Before updating the Badaso version, you should first backup the project.
 
 - Update badaso to latest version with command below.
 ```bash
-composer update uasoft-indonesia/badaso
+composer update badaso/core
 ```
 
 - Update badaso to latest version with command below.
@@ -32,10 +32,11 @@ php artisan migrate
 
 - Reseed badaso
 ```bash
-php artisan db:seed --class=BadasoSeeder
+php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
 ```
 
 - Install new Javascript packages if available
 ```bash
 npm install
+npm run dev
 ```
