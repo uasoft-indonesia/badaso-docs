@@ -6,7 +6,9 @@ custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/
 
 # Instalasi
 
-## Pada aplikasi baru (disarankan)
+## Pada aplikasi baru 
+
+### Menggunakan CURL
 
 Buat project badaso dengan curl
 
@@ -25,6 +27,54 @@ curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 Jika kamu menggunakan docker, maka aplikasi kamu akan langsung jalan oleh docker pada `localhost:8000`
 
 Jika kamu tidak menggunakan docker, maka kamu perlu menjalankan migrasi dan seeder pada database.
+
+Jalankan migration.
+```bash
+php artisan migrate
+ ```
+
+Jalankan seeder.
+```bash
+php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
+```
+
+Buat akun admin 
+```bash
+php artisan badaso:admin your@email.com --create
+```
+
+Jalankan projek dan akses melalui /badaso-dashboard.
+```bash
+php artisan serve
+```
+
+### Menggunakan Composer
+
+Buat projek menggunakan composer
+
+```bash
+composer create-project badaso/starter your_project_name
+```
+
+Jalankan migration.
+```bash
+php artisan migrate
+ ```
+
+Jalankan seeder.
+```bash
+php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
+```
+
+Buat akun admin 
+```bash
+php artisan badaso:admin your@email.com --create
+```
+
+Jalankan projek dan akses melalui /badaso-dashboard.
+```bash
+php artisan serve
+```
 
 ## Pada aplikasi yang sudah ada
 
@@ -48,14 +98,6 @@ Jalankan perintah berikut untuk memperbarui dependensi di package.json, webpack,
 php artisan badaso:setup
 ```
 
-## Setup selanjutnya (untuk aplikasi baru atau sudah ada)
-
-Jalankan migrasi database.
-
-```bash
-php artisan migrate
-```
-
 [opsional] Symlink folder storage jika belum
 
 ```bash
@@ -65,7 +107,7 @@ php artisan storage:link
 Untuk Laravel 8 dan proyek yang sudah ada, ubah filesystem driver menjadi `public` (**[readmore for cloud](/core-concept/storage)**)
 
 ```bash
-FILESYSTEM_DRIVER=public
+FILESYSTEM_DISK=public
 ```
 
 Jalankan composer autoload dan seeder
@@ -73,6 +115,14 @@ Jalankan composer autoload dan seeder
 ```bash
 composer dump-autoload
 ```
+
+Jalankan migrasi database.
+
+```bash
+php artisan migrate
+```
+
+Jalankan seeder
 
 `v2.x` Untuk Laravel 8 & 9
 
