@@ -5,8 +5,9 @@ docId: 'installation'
 
 # Installation
 
-## On Fresh Project (recommended)
-Create project via curl
+## On Fresh Project 
+
+### via Curl (recommended)
 
 :::info
 Install & enable docker first on your local system before running command for docker mode installation (recommended). If you not enable docker first, badaso will install without docker.
@@ -22,6 +23,54 @@ curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 If you using docker mode installation, your application will automatically serve by docker on ` localhost:8000`
 
 If you don't using docker mode installation, you need to migrate and seed the database first on your local system.
+
+Run database migration.
+```bash
+php artisan migrate
+ ```
+
+Run database seeder
+```bash
+php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
+```
+
+Create an admin account by typing the following command.
+```bash
+php artisan badaso:admin your@email.com --create
+```
+
+Run your laravel project and access /badaso-dashboard path on your laravel.
+```bash
+php artisan serve
+```
+
+### via Composer
+
+- Create project via composer
+
+```bash
+composer create-project badaso/starter your_project_name
+```
+
+Run database migration.
+```bash
+php artisan migrate
+ ```
+
+Run database seeder
+```bash
+php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
+```
+
+Create an admin account by typing the following command.
+```bash
+php artisan badaso:admin your@email.com --create
+```
+
+Run your laravel project and access /badaso-dashboard path on your laravel.
+```bash
+php artisan serve
+```
 
 ## On existing project
 You can install badaso on your existing application easily.
@@ -41,11 +90,6 @@ Run the following commands to install badaso
 php artisan badaso:setup
  ```
 
-Run database migration.
-```bash
-php artisan migrate
- ```
-
 [optional] Symlink the storage folder if not yet
 ```bash
 php artisan storage:link
@@ -53,12 +97,17 @@ php artisan storage:link
 
 For laravel 8 and existing project, change filesystem to public (**[readmore for cloud](/core-concept/storage)**)
 ```bash
-FILESYSTEM_DRIVER=public
+FILESYSTEM_DISK=public
  ```
 
 Run composer autoload and seeders
 ```bash
 composer dump-autoload
+ ```
+
+Run database migration.
+```bash
+php artisan migrate
  ```
 
 `v2.x` For Laravel 8 & 9
