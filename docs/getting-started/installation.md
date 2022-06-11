@@ -67,6 +67,11 @@ Create an admin account by typing the following command.
 php artisan badaso:admin your@email.com --create
 ```
 
+Symlink the storage folder if not yet
+```bash
+php artisan storage:link
+ ```
+
 Run the following command to install all javascript of dependencies.
 ```bash
 npm install
