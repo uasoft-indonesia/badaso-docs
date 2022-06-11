@@ -67,6 +67,12 @@ Create an admin account by typing the following command.
 php artisan badaso:admin your@email.com --create
 ```
 
+Run the following command to install all javascript of dependencies.
+```bash
+npm install
+npm run dev
+```
+
 Run your laravel project and access /badaso-dashboard path on your laravel.
 ```bash
 php artisan serve
@@ -125,7 +131,7 @@ Create an admin account by typing the following command.
 php artisan badaso:admin your@email.com --create
 ```
 
-Run the following command to install all of dependencies.
+Run the following command to install all javascript of dependencies.
 ```bash
 npm install
 npm run dev
