@@ -71,6 +71,19 @@ Buat akun admin
 php artisan badaso:admin your@email.com --create
 ```
 
+Symlink folder storage jika belum
+
+```bash
+php artisan storage:link
+```
+
+- Install javascript depedency
+
+```bash
+npm install
+npm run dev
+```
+
 Jalankan projek dan akses melalui /badaso-dashboard.
 ```bash
 php artisan serve
