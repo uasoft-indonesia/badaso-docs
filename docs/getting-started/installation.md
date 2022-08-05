@@ -7,10 +7,10 @@ docId: 'installation'
 
 ## On Fresh Project 
 
-### via Curl (recommended)
+### via Curl & Docker (recommended)
 
 :::info
-Install & enable docker first on your local system before running command for docker mode installation (recommended). If you not enable docker first, badaso will install without docker.
+Install & enable docker first on your local system before running command for docker mode installation (recommended). If you not enable docker first, badaso will install without docker and you need to migrate and seed your database manually.
 
 Make sure these ports are free on your system :8000 :3306 :6379 for smooth installation on docker mode.
 
