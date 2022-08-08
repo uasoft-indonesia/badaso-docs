@@ -17,6 +17,10 @@ Make sure these ports are free on your system :8000 :3306 :6379 for smooth insta
 Badaso using laravel sail for docker configuration, please read more about sail [here](https://laravel.com/docs/9.x/sail)
 :::
 
+:::info
+For MacOS, install the gnu-sed first `brew install gnu-sed`
+:::
+
 ```bash
 curl -s "https://badaso-starter.uatech.co.id/your-project-name" | bash
 ```
