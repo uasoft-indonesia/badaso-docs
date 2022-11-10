@@ -73,3 +73,37 @@ return [
     // add the table here
 ];
 ```
+
+# Maintenance
+
+## Maintenance with .env
+Mode maintenance memudahkan administrator untuk memperbaiki, mengubah, dan menambahkan fitur baru.
+
+```md title=".env"
+MIX_BADASO_MAINTENANCE=false
+```
+- Jika `MIX_BADASO_MAINTENANCE` memiliki nilai `false`, Anda dapat mengubah pengaturan maintenance di menu Configuration.
+- Tetapi `MIX_BADASO_MAINTENANCE` memiliki nilai `true`, Anda tidak dapat mengubah menu Configration dan pengaturan maintenance harus `readonly` dan, Anda hanya dapat mengubah di .env.
+
+## Secret-login page
+Jika Anda dalam mode maintenance, Anda dapat menggunakan halaman `secret-login` untuk login ke dashboard (khusus untuk administrator)
+
+```md title=".env"
+MIX_BADASO_SECRET_LOGIN_PREFIX=badaso-secret-login
+```
+
+- `badaso-secret-login` adalah nilai default untuk awalan halaman `secret-login`. Anda dapat mengubah sesuai kebutuhan.
+
+## Whitelist
+Whitelist adalah daftar yang memberikan pengecualian untuk masuk dalam mode maintenance. Anda dapat mengubah `config/badaso.php` di daftar putih.
+
+```md title="config/badaso.php"
+'whitelist' => [
+        'web' => [],
+        'badaso' => [
+            '/maintenance',
+            '/login,
+        ],
+        ...
+    ],
+```

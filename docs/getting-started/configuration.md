@@ -72,3 +72,38 @@ return [
     // add the table here
 ];
 ```
+
+## Maintenance
+
+### Maintenance with .env
+Maintenance mode makes it easy for administrators to fix, change, and add new features.  
+
+```md title=".env"
+MIX_BADASO_MAINTENANCE=false
+```
+- If `MIX_BADASO_MAINTENANCE` key doesn't exist, you can change maintenance setting in configuration menu.
+- But if `MIX_BADASO_MAINTENANCE` key exist, you can't change in configuration menu and maintenance setting should `readonly` and you just can change in .env.
+
+### Secret-login page
+if you are in maintenance mode, you can use `secret-login` page for login to dashboard (special for administrator)
+
+```md title=".env"
+MIX_BADASO_SECRET_LOGIN_PREFIX=badaso-secret-login
+```
+
+- `badaso-secret-login` is default value for prefix `secret-login` page. you can change as needed.
+
+### Whitelist
+Whitelist is a list for maintenance mode exception. you can change whitelist in `config/badaso.php`.
+
+```md title="config/badaso.php"
+'whitelist' => [
+        'web' => [],
+        'badaso' => [
+            '/maintenance',
+            '/login,
+        ],
+        ...
+    ],
+```
+
