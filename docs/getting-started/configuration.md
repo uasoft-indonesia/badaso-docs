@@ -82,7 +82,14 @@ Maintenance mode makes it easy for administrators to fix, change, and add new fe
 MIX_BADASO_MAINTENANCE=false
 ```
 - If `MIX_BADASO_MAINTENANCE` key doesn't exist, you can change maintenance setting in configuration menu.
+
+![key maintenance doesn't exist](https://i.postimg.cc/CLy8DgTg/key-maintenance-doesn-t-exist.png)
+
 - But if `MIX_BADASO_MAINTENANCE` key exist, you can't change in configuration menu and maintenance setting should `readonly` and you just can change in .env.
+
+![key maintenance false](https://i.postimg.cc/3RVvtMk2/key-maintenance-false.png)
+
+![key maintenance true](https://i.postimg.cc/gcLRn07s/key-maintenance-true.png)
 
 ### Secret-login page
 if you are in maintenance mode, you can use `secret-login` page for login to dashboard (special for administrator)
