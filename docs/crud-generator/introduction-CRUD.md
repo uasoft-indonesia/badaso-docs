@@ -83,6 +83,10 @@ When adding or editing an existing CRUD, you will see some information that you 
 
     Provide a description of the table data generator CRUD.
 
+- Set Relation Many To Many
+
+    Make relation table with other table using table polymorphism
+
 ## Form Result
 The following is the display result of field that available at Badaso.
 
