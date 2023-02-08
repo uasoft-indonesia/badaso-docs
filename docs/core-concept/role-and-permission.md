@@ -149,12 +149,34 @@ There are 2 kind of permission helpers at badaso :
         </div>
     <template>
     ```
+3. Permission for Read Data Itself
 
-## User Role Management
+    This feature is useful for securing each user's data, users can only view the data they create without other users knowing By default, this feature allows users to only view their data, except administrators.
 
-The following display is a display of role management features, this feature is used to determine what role will be used on the system, by default there is only 1, namely Administrator.
+    -  Role can see all data
 
-![Docusaurus logo](/img/user-role-management.png)
+       Role can see all data is the option to see all data. The default value is administrator. Roles that are not selected in this menu can only see their own data.
+
+    - Column for identifying user related data
+
+        Column for identify user related data is a field that has a relationship with the user id of the user. This input is useful for separating data according to the user who created it. the default value is "user_id", if there is no "user_id" field in the table, the user can choose a field that has the same function as the "user_id" field, if the field is not found in the table, all user data is displayed.
+
+    ### Example
+    To use the feature, you can following the steps below:
+    - Before you set Read Data Itself, you must add permissions to the roles you want to give control access to. 
+    - Open the permission management menu, look for the permissions to change then select edit.
+    ![Browse Permissionp Data Itself](/img/browse-permissionp-data-itself.png)
+    - In the input "Role can see all data", select the role that can see all data.
+    - In the "Column for identifying user related data" input, select the field that becomes the identify field related to the user id.
+    ![Edit Permission Data Itself](/img/edit-permission-data-itself.png)
+    - To create a CRUD with this feature, the User must use the "data identifier" input data.
+    ![Data identifier](/img/data-identifier.png)
+    
+    ## User Role Management
+
+    The following display is a display of role management features, this feature is used to determine what role will be used on the system, by default there is only 1, namely Administrator.
+
+    ![Docusaurus logo](/img/user-role-management.png)
 
 ## Role Permission Management
 
