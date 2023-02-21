@@ -149,9 +149,9 @@ There are 2 kind of permission helpers at badaso :
         </div>
     <template>
     ```
-3. Permission for Read Data Itself
+3. Permission for user can only see data created by itself
 
-    This feature is useful for securing each user's data, users can only view the data they create without other users knowing By default, this feature allows users to only view their data, except administrators.
+    This feature is useful for securing each user's data, users can only view the data they create without other users knowing. By default, this feature allows users to only view their data, except administrators.
 
     -  Role can see all data
 
@@ -163,7 +163,7 @@ There are 2 kind of permission helpers at badaso :
 
     ### Example
     To use the feature, you can following the steps below:
-    - Before you set Read Data Itself, you must add permissions to the roles you want to give control access to. 
+    - Before you set "user can only see data created by itself", you must add permissions to the roles you want to give control access to. 
     - Open the permission management menu, look for the permissions to change then select edit.
     ![Browse Permissionp Data Itself](/img/browse-permissionp-data-itself.png)
     - In the input "Role can see all data", select the role that can see all data.
