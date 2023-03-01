@@ -28,7 +28,7 @@ Untuk menggunakan fitur ini, dapat mengikuti langkah di bawah ini:
 - Simpan dan tabel polymorphism berhasil dibuat.
 ![Browse relation many to many](/img/browse-crud-relation-many-to-many.png)
 
-## Make Manual Table polymorphism
+## Make table polymorphism yourself
 Untuk membuat table polymorphism, dapat mengikuti langkah dibawah ini:
 - Buka database management, lalu klik tambah.
 

@@ -28,7 +28,7 @@ For use this feature, you can follow the step below:
 - You can save and you have new polymorphism table.
 ![Browse relation many to many](/img/browse-crud-relation-many-to-many.png)
 
-## Make Manual Table polymorphism
+## Make table polymorphism yourself
 To create a polymorphism table, you can follow the steps below:
 - Open database management, then click add.
 
