@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
     AWS_URL=
 
   </TabItem>
-  <TabItem value="drive" label="Drive (Backup only)">
+  <TabItem value="drive" label="Google Drive (Backup only)">
 
     #OPTIONAL. Set Google Drive if use Google Drive as backup
     GOOGLE_DRIVE_CLIENT_ID=
