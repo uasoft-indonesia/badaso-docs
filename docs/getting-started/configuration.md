@@ -41,6 +41,31 @@ GOOGLE_DRIVE_FOLDER_ID=
 - `GOOGLE_DRIVE_REFRESH_TOKEN`: Fill in to use the backup feature to Google Drive.
 - `GOOGLE_DRIVE_FOLDER_ID`: Folder id to upload backup files into the specified folder.
 
+Add the storage disk configuration to `config/filesystem.php` :
+```md title="config/filesystem.php"
+return [
+
+    // ...
+    
+    'disks' => [
+        
+        // ...
+        
+        'drive' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+        
+        // ...
+        
+    ],
+    
+    // ...
+];
+```
 ### Dropbox
 
 ```md title=".env"
@@ -48,6 +73,38 @@ DROPBOX_AUTH_TOKEN=
 ```
 
 - `GOOGLE_DRIVE_CLIENT_ID`: Fill in to use the backup feature to Dropbox.
+
+Add the storage disk configuration to `config/filesystem.php`:
+```md title="config/filesystem.php"
+return [
+
+    // ...
+    
+    'disks' => [
+        
+        // ...
+        
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'authorization_token' => env('DROPBOX_AUTH_TOKEN'),
+        ],
+        
+        // ...
+        
+    ],
+    
+    // ...
+];
+```
+
+```md title=".env"
+BACKUP_TARGET=
+BACKUP_DISK=
+```
+
+- `BACKUP_TARGET`: Fill to select target backup. Example: all, database, or files.
+- `BACKUP_DISK`: Fill to select disk backup. Example: s3, drive, dropbox.
+
 
 ## Hidden Tables
 
