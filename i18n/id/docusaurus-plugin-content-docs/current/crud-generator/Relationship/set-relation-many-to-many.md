@@ -1,10 +1,11 @@
 ---
 docId: 'setrelationmanytomany'
+sidebar_position: 4
 ---
 
 # Relation Many to Many
 
-Badaso menyediakan fitur untuk menghubungkan data dari suatu tabel ke tabel lainnya. Saat membuat CRUD, pengguna dapat menautkan field dari satu tabel ke tabel lainnya dengan memilih field mana yang akan dihubungkan, jenis ralasi, dan tabel tujuan. jika ingin menggunakan tabel polymorphism atau menggunakan relasi Belongs To Many.
+Badaso menyediakan fitur untuk menghubungkan data dari suatu tabel ke tabel lainnya. Saat membuat CRUD, kamu dapat menautkan field dari satu tabel ke tabel lainnya dengan memilih field mana yang akan dihubungkan, jenis ralasi, dan tabel tujuan. jika ingin menggunakan tabel polymorphism atau menggunakan relasi Belongs To Many.
 
 Untuk membuat relasi many to many, harus memiliki minimal dua tabel agar dapat membuat relasi.
 Fitur ini memiliki dua opsi:
@@ -29,15 +30,19 @@ Untuk menggunakan fitur ini, dapat mengikuti langkah di bawah ini:
 ![Browse relation many to many](/img/browse-crud-relation-many-to-many.png)
 
 ## Make table polymorphism yourself
+Misalnya, Membuat tabel foo dan tabel boo yang memiliki relasi dengan tabel polymorphism.
 Untuk membuat table polymorphism, dapat mengikuti langkah dibawah ini:
-- Buka database management, lalu klik tambah.
+
+- Sebelumnya, buat terlebih dahulu tabel foo dan tabel boo.
+
+- Untuk membuat tabel polymorphism, buka database management, kemudian klik "add".
 
 - Buat nama table.
 ![Add name table](/img/add-name-table.png)
 
 - Buat dua buah field dengan ketentuan :
-    - Nama tabel pertama sama dengan table primary pertama dengan format seperti ini : namatablepertama_id
-    - Nama tabel kedua sama dengan table primary kedua dengan format seperti ini : namatablekedua_id
+    - Nama tabel pertama sama dengan table primary pertama dengan format seperti ini : namatablepertama_id. Contoh foo_id.
+    - Nama tabel kedua sama dengan table primary kedua dengan format seperti ini : namatablekedua_id. Contoh boo_id.
     - Tipe Field "Big Integer"
     - Centang unsigned
     - Pada pilihan "index", pilih "foreign", Klik tombol berwarna biru.

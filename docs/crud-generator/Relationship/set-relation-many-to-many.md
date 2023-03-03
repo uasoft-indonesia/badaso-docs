@@ -1,10 +1,11 @@
 ---
 docId: 'setrelationmanytomany'
+sidebar_position: 4
 ---
 
 # Relation Many to Many
 
-Badaso provides a feature to relate data from a table to other tables. When creating a CRUD, the user can link a field from one table to another by selecting which field to relate to, the relationship type and the destination table. if you want to use table polymorphism or use relationship Belongs To Many. 
+Badaso provides a feature to relate data from a table to other tables. When creating a CRUD, the developer can link a field from one table to another by selecting which field to relate to, the relationship type and the destination table. if you want to use table polymorphism or use relationship Belongs To Many. 
 
 To make relation many to many, you must have minimal two table so that can make relation. 
 This feature have two option: 
@@ -29,15 +30,18 @@ For use this feature, you can follow the step below:
 ![Browse relation many to many](/img/browse-crud-relation-many-to-many.png)
 
 ## Make table polymorphism yourself
+For example, we should create table foo and table boo have relation with table polymorphism.
 To create a polymorphism table, you can follow the steps below:
-- Open database management, then click add.
+- Before create table polymorphism, create table foo and table boo.
+
+- To make table polymorphism, Open database management, then click add.
 
 - Create a table name.
 ![Add name table](/img/add-name-table.png)
 
 - Create two fields with the conditions:
-    - The first table name is the same as the first primary table with this format: firsttablename_id
-    - The name of the second table is the same as the second primary table with this format: secondtablename_id
+    - The first table name is the same as the first primary table with this format: firsttablename_id. example "foo_id".
+    - The name of the second table is the same as the second primary table with this format: secondtablename_id. example "boo_id".
     - Field Type "Big Integer"
     - Check unsigned
     - In the "index" option, select "foreign", click the blue button.
