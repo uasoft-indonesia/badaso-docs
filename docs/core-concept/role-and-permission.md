@@ -162,14 +162,17 @@ There are 2 kind of permission helpers at badaso :
         Column for identify user related data is a field that has a relationship with the user id of the user. This input is useful for separating data according to the user who created it. the default value is "user_id", if there is no "user_id" field in the table, the user can choose a field that has the same function as the "user_id" field, if the field is not found in the table, all user data is displayed.
 
     ### Example
-    To use the feature, you can following the steps below:
-    - Before you set "user can only see data created by itself", you must add permissions to the roles you want to give control access to. 
-    - Open the permission management menu, look for the permissions to change then select edit.
+    For example, a developer creates a book table where each book entry cannot be seen by other users. To use the feature, you can following the steps below:
+    - Create table "books" with database management.
+    - You have to create a column identifier to recognize the user who created the data. By default badaso uses "user_id".
+    - Use CRUD management to generate CRUD, in the column identifier use the "data identifier" for Input Type and save.
+    - Before you set "user can only see data created by itself", you must add "books" to the roles you want to give control access to.
+    - Open the permission management menu, look for the "browse_books" to change then select edit.
     ![Browse Permissionp Data Itself](/img/browse-permissionp-data-itself.png)
     - In the input "Role can see all data", select the role that can see all data.
     - In the "Column for identifying user related data" input, select the field that becomes the identify field related to the user id.
     ![Edit Permission Data Itself](/img/edit-permission-data-itself.png)
-    - To create a CRUD with this feature, the User must use the "data identifier" input data.
+    - To create a CRUD with this feature, the User_id or something like that must use the "data identifier" input data.
     ![Data identifier](/img/data-identifier.png)
     
     ## User Role Management

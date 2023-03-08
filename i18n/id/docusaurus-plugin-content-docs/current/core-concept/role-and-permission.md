@@ -151,6 +151,32 @@ Terdapat 2 jenis permission helper di badaso, yaitu :
    <template>
    ```
 
+3. Permission untuk pengguna hanya dapat melihat data yang dibuat dengan sendirinya
+
+  Fitur ini berguna untuk mengamankan data masing-masing pengguna, pengguna hanya dapat melihat data yang mereka buat tanpa sepengetahuan pengguna lain. Secara default, fitur ini memungkinkan pengguna hanya melihat data mereka, kecuali administrator.
+
+  - Peran dapat melihat semua data
+
+    Role can see all data adalah opsi untuk melihat semua data. Nilai default adalah administrator. Peran yang tidak dipilih dalam menu ini hanya dapat melihat datanya sendiri.
+
+  - Kolom untuk mengidentifikasi data terkait pengguna
+
+    Kolom untuk mengidentifikasi data terkait pengguna adalah bidang yang memiliki hubungan dengan id pengguna pengguna. Input ini berguna untuk memisahkan data menurut pengguna yang membuatnya. nilai defaultnya adalah "user_id", jika tidak ada kolom "user_id" di tabel, pengguna dapat memilih kolom yang memiliki fungsi yang sama dengan kolom "user_id", jika kolom tersebut tidak ditemukan di tabel, semua pengguna data ditampilkan.
+
+  ### Contoh
+  Misalnya, developer membuat tabel buku di mana setiap entri buku tidak dapat dilihat oleh pengguna lain. Untuk menggunakan fitur tersebut, dapat mengikuti langkah-langkah di bawah ini:
+  - Buat tabel books dengan database management.
+  - Developer harus membuat column identifier untuk mengenali user yang melakukan entri data. secara default badaso menggunakan user_id dan simpan.
+  - Gunakan CRUD management untuk membuat CRUD, pada column identifier gunakan Input Type "data identifier". 
+  - Sebelum menyetel "pengguna hanya dapat melihat data yang dibuat sendiri", harus menambahkan "books" ke peran yang ingin diberi akses kontrol. 
+  - Buka menu permission management, cari "browse_books" yang akan diubah lalu pilih edit.
+  ![Browse Permissionp Data Itself](/img/browse-permissionp-data-itself.png)
+  - Pada input "Role can see all data", pilih role yang bisa melihat semua data.
+  - Pada input "Column for identify user related data", pilih bidang yang menjadi bidang identifikasi yang terkait dengan id pengguna.
+  ![Edit Permission Data Itself](/img/edit-permission-data-itself.png)
+  - Untuk membuat CRUD dengan fitur ini, user_id atau semacamnya harus menggunakan input data "data identifier".
+  ![Data identifier](/img/data-identifier.png)
+
 ## Manajemen User Role
 
 Setiap user dapat memiliki minimal 1 atau lebih role. Berikut merupakan tampilan dari manajemen role untuk user.
