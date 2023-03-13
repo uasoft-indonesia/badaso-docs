@@ -14,7 +14,7 @@ This feature have two option:
 
 ## Set Relation Many to Many
 For use this feature, you can follow the step below:
-- Click button "set relation many to many".
+- Click button "set other relation".
 ![Before add relation many to many](/img/before-create-relation-many-to-many.png)
 
 - Choice relation type, destination table, destination column, and destination column to display.

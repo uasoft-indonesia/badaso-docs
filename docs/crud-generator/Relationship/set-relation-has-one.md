@@ -10,23 +10,21 @@ Badaso provides a feature to use Has One relation. For more details about Has On
 
 ## Set Relation Has One
 For use this feature, you can follow the step below:
-- Previously, using CRUD Management, first create a table that will generate CRUD. Example "books".
+- Previously, using CRUD Management, first create a table that will generate CRUD. Example "books" dan "categories".
 
-- Open CRUD Management, and edit the table that has been create.
+- Create a CRUD management for the "books" table, then create a CRUD management for the "categories" table as shown below:
 
-    ![Add relation Has One](/img/Add-relation-has-one.png)
+    - Click button "set other relation".
+        ![Add relation Has One](/img/Add-relation-has-one.png)
 
-- Set the column according to what you want, in the column that is used as a relation, select the input relation type, press the "set relation" button.
+    - Choice relation type, destination table, destination column, and destination column to display.
+        ![Add relation Has One set options](/img/Add-relation-has-one-set-options.png)
 
-    ![Add relation Has One set input type](/img/Add-relation-has-one-set-input-type.png)
-
-- In the form, follow these steps:
-    - In Relation Type select "Has One".
-    - In Destination Table select table relation.
-    - In Destination Column select id.
-    - In Destination Column To Display select column to display. for example "name".
-    - More Data For API is an optional menu that is used to add data that will be returned by the API.
-
-    ![Add relation Has One set options](/img/Add-relation-has-one-set-options.png)
+    - but, if you have table polymorphism, you can use that with feature advanced setting and choice polymorphism table.
+        ![after add relation has one](/img/after-make-relation-has-one.png)
 
 - Save and save CRUD. 
+
+### Result
+
+![Result has Many](/img/result-has-one.png)
