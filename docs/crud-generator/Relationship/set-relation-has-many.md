@@ -25,6 +25,8 @@ For use this feature, you can follow the step below:
 
 - Save and save CRUD. 
 
+Note: If you use a model, you must also use the model in the relation table.
+
 ### Result
 
 ![Result has Many](/img/result-has-many.png)

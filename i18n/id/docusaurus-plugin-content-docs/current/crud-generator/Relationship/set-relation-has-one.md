@@ -25,6 +25,8 @@ Untuk menggunakan fitur ini, bisa mengikuti langkah berikut:
 
 - Simpan dan Simpan CRUD. 
 
+Note: Jika kamu menggunakan model, kamu juga harus menggunakan model pada tabel relasinya.
+
 ### Result
 
 ![Result has Many](/img/result-has-one.png)
