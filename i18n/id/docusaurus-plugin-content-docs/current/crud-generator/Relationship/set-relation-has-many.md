@@ -10,23 +10,23 @@ Badaso menyediakan fitur untuk menggunakan relasi Has Many.Untuk lebih jelasnya 
 
 ## Set Relation Has Many
 Untuk menggunakan fitur ini, bisa mengikuti langkah berikut:
-- Sebelumnya, menggunakan crud manajement, buat terlebih dahulu table yang akan di generate CRUD. Contohnya tabel "Buku".
+- Sebelumnya, menggunakan crud manajement, buat terlebih dahulu table yang akan di generate CRUD. Contohnya tabel "books" dan tabel "categories".
 
-- Buka crud management, dan edit tabel yang sudah dibuat.
+- Buat CRUD management tabel "books", setelah itu buat CRUD management untuk tabel "categories" seperti dibawah ini:
 
-    ![Add relation belongs to](/img/Add-relation-belongs-to.png)
+    - Tekan Tombol "set other relation".
+        ![Add relation Has Many](/img/Add-relation-has-one.png)
 
-- Atur column sesuai dengan yang diiinginkan, pada column yang dijadikan relasi, pilih Input Type "relation", tekan tombol "set relation".
+    - Pilih relasi pilihan, tabel tujuan, kolom tujuan, dan kolom tujuan untuk ditampilkan.
+        ![Add relation Has Many set options](/img/Add-relation-has-many-set-options.png)
 
-    ![Add relation belongs to set input type](/img/Add-relation-belongs-to-set-input-type.png)
+    - Setelah disimpan, akan memiliki baris seperti ini.
+        ![after add relation has Many](/img/after-make-relation-has-one.png)
 
-- Pada Formulir, ikuti langkah berikut : 
-    - Pada Relation Type pilih "Has Many"
-    - Pada Destination Table pilih table relation
-    - Pada Destination Column pilih id.
-    - Pada Destination Column To Display pilih column to display. contoh nama.
-    - More Data For API adalah menu optional yang digunakan untuk menambahkan data yang akan dikembalikan oleh API. 
+- Simpan dan Simpan CRUD. 
 
-    ![Add relation belongs to set options](/img/Add-relation-has-many-set-options.png)
+Note: Jika kamu menggunakan model, kamu juga harus menggunakan model pada tabel relasinya.
 
-- Simpan dan simpan CRUD. 
+### Result
+
+![Result has Many](/img/result-has-many.png)

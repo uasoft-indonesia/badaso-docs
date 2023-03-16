@@ -14,7 +14,7 @@ Fitur ini memiliki dua opsi:
 
 ## Set Relation Many to Many
 Untuk menggunakan fitur ini, dapat mengikuti langkah di bawah ini:
-- Tekan Tombol "set relation many to many".
+- Tekan Tombol "set other relation".
 ![Before add relation many to many](/img/before-create-relation-many-to-many.png)
 
 - Pilih relasi pilihan, tabel tujuan, kolom tujuan, dan kolom tujuan untuk ditampilkan.
@@ -24,7 +24,7 @@ Untuk menggunakan fitur ini, dapat mengikuti langkah di bawah ini:
 ![advanced setting](/img/relation-many-to-many-advanced-setting.png)
 
 - Setelah disimpan, akan memiliki baris seperti ini.
-![Before add relation many to many](/img/after-make-relation-many-to-many.png)
+![after add relation many to many](/img/after-make-relation-many-to-many.png)
 
 - Simpan dan tabel polymorphism berhasil dibuat.
 ![Browse relation many to many](/img/browse-crud-relation-many-to-many.png)
