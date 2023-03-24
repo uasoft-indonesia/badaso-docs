@@ -54,3 +54,69 @@ class NewController extends BadasoBaseController
 
 - Ubah controller pada CRUD yang ingin kita override pada "Edit related CRUD > Advanced Settings > Controller Name" dengan controller baru yang kita buat `App\Http\Controllers\NewController`
 ![Docusaurus logo](/img/override-controller.png)
+
+## Example
+Misalnya, kamu memiliki tabel food_categories dan kamu ingin override controller pada method browse.
+
+- Buat Controller baru untuk di override
+```bash 
+php artisan make:controller NewController
+```
+- Extend class BadasoBaseController dan impor beberapa kode penting di pengontrol baru.
+  
+  Kamu dapat memeriksa detail lebih lanjut di vendor/badaso/core/src/Controllers/BadasoBaseController.
+
+- Kamu bisa menyalin semua isi method browse lalu menempelkannya di controller yang baru.
+
+  ![Override controller browse controller](/img/override-controller-browse-controller.png)
+
+- Misalnya, pada override ini kamu ingin menambahkan message "hello world". Kamu bisa menambahkan datanya seperti ini
+  ```
+    $data['message'] = "hello world";
+  ```
+
+  ![Override controller update browse](/img/override-controller-update-browse.png)
+
+  Jika controller baru sudah di ubah, kamu bisa klik save.
+
+- Setelah itu, pergi ke aplikasi badaso, lalu buka crud-management pada tabel food_categories dan pilih Add CRUD.
+
+  ![Override controller crud management](/img/override-controller-crud-management.png)
+
+- Pada crud management, buka tab advanced setting dan akan terlihat controller name. Isi controller name tersebut dengan namespace controller tersebut. Misalnya : 
+  ```
+  App\Http\Controllers\foodCategoryController
+  ```
+
+  ![Override controller menu controller](/img/override-controller-menu-controller.png)
+
+  Jika sudah selesai, klik save.
+
+- Untuk melihat hasil override controller yang dibuat, ada beberapa cara salah satunya dengan membuka **API Documentation**.
+
+- Buka menu **API Documentation**, untuk menjalankan **API Documentation** harus menggunakan token untuk authorization. Maka kamu harus mengambil token tersebut dengan langkah berikut:
+    -  Klik kanan lalu pilih inspect
+    - Refresh halaman browser kamu
+    - Buka tab network
+    - Cari nama **user**, lalu pilih
+    - pada response header, kamu akan melihat authorization
+    - salin semua isi authorization kecuali kata "bearer" sebagai token
+
+  ![Override controller token](/img/override-controller-token.png)
+
+- Kembali ke menu **API Documentation**, setelah mendapatkan token untuk authorization, klik tombol **authorize** lalu paste token tersebut pada **value** lalu klik authorize.
+
+  ![Override controller add token](/img/override-controller-add-token.png)
+
+- Setelah itu, cari menu food-categories lalu pilih browse, biasanya untuk menu browse berada pada urutan yang paling atas.
+
+  ![Override controller try api docs](/img/override-controller-try-api-docs.png)
+
+- Lalu klik tombol **try it out**, kemudian tekan tombol **execute**
+
+- Kamu akan melihat hasil override controller yang kamu buat pada response di property message
+
+  ![Override controller result](/img/override-controller-result.png)
+
+
+
