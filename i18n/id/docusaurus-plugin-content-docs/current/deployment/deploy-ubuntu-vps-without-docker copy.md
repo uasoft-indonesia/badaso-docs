@@ -8,20 +8,20 @@ sidebar_position: 1
 ## Requirements
   - A server running ubuntu
   - SSH access to the server from a local terminal
-  - A project hosted with git (GitHub/GitLab/Bitbucket etc)
-  - Nginx(recomended) or apache2
+  - Proyek yang dihosting dengan git (GitHub/GitLab/Bitbucket dll)
+  - Nginx(recomended) atau apache2
   - PHP 8.x
   - MySQL
-  - Adminer(optional)
+  - Adminer(Opsional)
   - Composer
   - Node
-  - NPM or Yarn
+  - NPM atau Yarn
 
-**If LEMP (Linux, Nginx, MySQL and PHP) is not installed on your server, you can follow these steps.**
+**Jika LEMP (Linux, Nginx, MySQL dan PHP) belum terinstal di server kamu, kamu dapat mengikuti langkah-langkah ini.**
 
 ## Log in to your server
 
-- Login to your server using ssh from a terminal. I recommend that you set up ssh keys on your server from the server monitoring dashboard if your service provider supports it.
+- Login ke server kamu menggunakan ssh dari terminal. Kami sarankan kamu menyiapkan kunci ssh di server kamu dari dasbor pemantauan server jika penyedia layanan kamu mendukungnya.
 
 ```
 ssh username@serveripaddress
@@ -29,7 +29,7 @@ ssh username@serveripaddress
 
 ![Deploy ubuntu wihtout docker vps login](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-vps-login.png)
 
-- Update your package manager.
+- Perbarui manajer paket kamu.
 
 ```
 sudo apt-get update
@@ -39,25 +39,25 @@ sudo apt-get update
 
 ## Install Nginx
 
-- Because Nginx is available in Ubuntu’s default repositories, it is possible to install it from these repositories using the apt packaging system.
+- Karena Nginx tersedia di repositori default Ubuntu, kamu dapat menginstalnya dari repositori ini menggunakan sistem packaging apt.
 
 ```
 sudo apt install nginx
 ```
 
-- Change owner folder /var/www.
+- Ganti owner folder /var/www.
 
 ```
 sudo chown -R www-data:www-data /var/www
 ```
 
-- Change access permissions to make it accessible.
+- Ubah izin akses untuk membuatnya dapat diakses.
 
 ```
 sudo chmod -R 775 /var/www
 ```
 
-- Add the user to the www-data group so that the user can edit files in the /var/www folder. Change 'yourUsername' with your username ubuntu.
+- Tambahkan pengguna ke grup www-data sehingga pengguna dapat mengedit file di folder /var/www. Ubah 'yourUsername' dengan nama pengguna ubuntu kamu.
 
 ```
   sudo usermod -a -G www-data 'Username'
@@ -67,27 +67,27 @@ sudo chmod -R 775 /var/www
 
 ## Install PHP 8.x
 
-In the documentation, we use mysql PHP 8.1. You can use another version.
+Dalam dokumentasi, kami menggunakan mysql PHP 8.1. kamu dapat menggunakan versi lain.
 
-- Install software-properties-common, which adds management for additional software sources.
+- Install software-properties-common, yang menambahkan manajemen untuk sumber perangkat lunak tambahan.
 
 ```
 sudo apt install software-properties-common
 ```
 
-- Install the repository ppa:ondrej/php, which will give you all your versions of PHP.
+- Install the repository ppa:ondrej/php, yang akan memberi kamu semua versi PHP kamu.
 
 ```
 sudo add-apt-repository ppa:ondrej/php
 ```
 
-- Update apt again so your package manager can see the newly listed packages.
+- Perbarui apt lagi sehingga manajer paket kamu dapat melihat paket yang baru terdaftar.
 
 ```
 sudo apt update
 ```
 
-- Now you’re ready to install PHP 8.1 and install additional modules.
+- Sekarang kamu siap menginstal PHP 8.1 dan menginstal modul tambahan.
 
 ```
 sudo apt install php8.1-fpm php8.1-mysql php8.1-curl php8.1-gd php8.1-mbstring php8.1-mcrypt php8.1-xml php8.1-xmlrpc php8.1-zip
@@ -95,27 +95,27 @@ sudo apt install php8.1-fpm php8.1-mysql php8.1-curl php8.1-gd php8.1-mbstring p
 
 ## Install MySQL
 
-In the documentation, we use mysql to store data. You can also use postgreSQL and sqlite.
+Dalam dokumentasi, kami menggunakan mysql untuk menyimpan data. kamu juga dapat menggunakan postgreSQL dan sqlite.
 
-- If mysql-server is not installed on the server, run this command to install mysql-server.
+- Jika server mysql tidak diinstal di server, jalankan perintah ini untuk menginstal server mysql.
 
 ```
 sudo apt install mysql-server
 ```
 
-- When you’re finished, Test if you’re able to log in to the MySQL console by typing:
+- Setelah selesai, Uji apakah kamu dapat masuk ke konsol MySQL dengan mengetik:
 
 ```
 sudo mysql
 ```
 
-- You can always create a user that authenticates with caching_sha2_plugin and then ALTER it later on with this command:
+- Kamu selalu dapat membuat pengguna yang mengotentikasi dengan caching_sha2_plugin dan kemudian MENGUBAH nanti dengan perintah ini:
 
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ChangeWithYourPassword';
 ```
 
-- Following this, it’s good practice to run the FLUSH PRIVILEGES command. This will free up any memory that the server cached as a result of the preceding CREATE USER and GRANT statements.
+- Setelah ini, sebaiknya jalankan perintah FLUSH PRIVILEGES. Ini akan mengosongkan semua memori yang di-cache server sebagai hasil dari pernyataan CREATE USER dan GRANT sebelumnya.
 
 ```
 FLUSH PRIVILEGES;
@@ -124,37 +124,37 @@ FLUSH PRIVILEGES;
 ![Deploy ubuntu wihtout docker mysql conf](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-mysql-conf.png)
 
 ## Install Adminer (Optional)
-- Create an adminer folder inside the /var/www/ folder to hold the adminer files.
+- Buat folder admin di dalam folder /var/www/ untuk menampung file admin.
 
 ```
 mkdir /var/www/adminer
 ```
 
-- Go to the /var/www/adminer folder
+- Buka folder /var/www/adminer
 
 ```
 cd /var/www/adminer
 ```
 
-- Download the adminer file so that the adminer can be installed on the server.
+- Unduh file adminer agar admin dapat diinstal di server.
 
 ```
 wget http://www.adminer.org/latest.php -O /var/www/adminer/adminer.php
 ```
 
-- Rename the file adminer.php to index.php so that the file can be read directly by the server.
+- Rename file adminer.php menjadi index.php agar file dapat dibaca langsung oleh server.
 
 ```
 mv adminer.php index.php
 ```
 
-- Change owner file /var/www/adminer/index.php
+- Ubah file pemilik /var/www/adminer/index.php
 
 ```
 sudo chown www-data:www-data /var/www/adminer/index.php
 ```
 
-- Change access permissions to make it accessible.
+- Ubah izin akses untuk membuatnya dapat diakses.
 
 ```
 sudo chmod 755 /var/www/adminer/index.php
@@ -166,7 +166,7 @@ sudo service nginx reload
 
 ### Setup NGINX for adminer (if you use adminer)
 
-- Go to directory /etc/nginx/sites-available. Then, add the file.
+- Buka direktori /etc/nginx/sites-available. Kemudian, tambahkan file.
 
 ```
 cd /etc/nginx/sites-available
@@ -206,12 +206,12 @@ server {
 }
 ```
 
-listen : You can change the port according to your needs. For example we use port 3307.
-server_name : You can change with your domain. Because in this example it doesn't have a domain, the server_name is left blank and we use port 3307 to access the adminer.
+listen : Kamu dapat mengubah port sesuai dengan kebutuhan kamu. Misalnya kita menggunakan port 3307.
+server_name : Kamu dapat mengubah dengan domain kamu. Karena pada contoh ini tidak memiliki domain maka server_name dikosongkan dan kita gunakan port 3307 untuk mengakses admin.
 
 ![Deploy ubuntu wihtout docker adminer edit file](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-adminer-edit-file.png)
 
-- Activate both configurations by creating a link file in /etc/nginx/site-enabled/.
+- Aktifkan kedua konfigurasi dengan membuat file link di /etc/nginx/site-enabled/.
 
 ```
 ln -s /etc/nginx/site-available/adminer /etc/nginx/site-enabled/adminer
@@ -219,20 +219,20 @@ ln -s /etc/nginx/site-available/adminer /etc/nginx/site-enabled/adminer
 
 ![Deploy ubuntu wihtout docker adminer link](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-adminer-link.png)
 
-- Configuration test.
+- Tes konfigurasi.Configuration test.
 
 ```
 sudo nginx -t
 ```
 
-If the configuration is valid, you will get:
+Jika konfigurasi valid, kamu akan mendapatkan:
 
 ```
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-- Reload NGINX.
+- Muat ulang NGINX.
 
 ```
 service nginx reload
@@ -240,7 +240,7 @@ service nginx reload
 
 ![Deploy ubuntu wihtout docker finish nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-finish-nginx-project.png)
 
--  You can access adminer by opening your-ip:3307.
+- kamu dapat mengakses admin dengan membuka your-ip:3307.
 
 ```
 your-ip:3307
@@ -248,7 +248,7 @@ your-ip:3307
 ![Deploy ubuntu wihtout docker finish nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-adminer-finish.png)
 
 ## Install Composer
-- To quickly install Composer in the current directory, run the following script in your terminal. 
+- Untuk menginstal Composer dengan cepat di direktori saat ini, jalankan skrip berikut di terminal kamu.
 
 ```
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -257,7 +257,7 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
 
-- Most likely, you want to put the composer.phar into a directory on your PATH, so you can simply call composer from any directory (Global install).
+- Kemungkinan besar, kamu ingin meletakkan composer.phar ke dalam direktori di PATH kamu, jadi kamu cukup memanggil komposer dari direktori mana saja (Global install).
 
 ```
 sudo mv composer.phar /usr/bin/composer
@@ -266,16 +266,16 @@ sudo mv composer.phar /usr/bin/composer
 ![Deploy ubuntu wihtout docker composer install](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-adminer-composer-install.png)
 
 ## Install Node
-In the documentation, we use Node version 16.
+Dalam dokumentasi, kami menggunakan Node versi 16.
 
-- Install the PPA to get access to its packages. From your home directory, use curl to retrieve the installation script for your preferred version, making sure to replace 16.x with your preferred version string.
+- Instal PPA untuk mendapatkan akses ke paketnya. Dari direktori home kamu, gunakan curl untuk mengambil skrip instalasi untuk versi pilihan kamu, pastikan untuk mengganti 16.x dengan string versi pilihan kamu.
 
 ```
 cd ~
 curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
 ```
 
-- Run the script. The PPA will be added to your configuration and your local package cache will be updated automatically. 
+- Jalankan skrip. PPA akan ditambahkan ke konfigurasi kamu dan cache paket lokal kamu akan diperbarui secara otomatis.
 
 ```
 sudo bash /tmp/nodesource_setup.sh
@@ -293,7 +293,7 @@ sudo apt install nodejs
 
 ### Clone Project
 
-- Clone your project to the /var/www folder and give it a project name. For example we cloned the project from gitlab.
+- Clone proyek kamu ke folder /var/www dan beri nama proyek. Misalnya kami mengkloning proyek dari gitlab.
 
 ```
 cd /var/www
@@ -304,7 +304,7 @@ sudo git clone {link-your-project-badaso-from-github-or-gitlab} your-name-projec
 
 ### Change access permission dicretory
 
-- Change owner file /var/www/your-name-project
+- Ubah file pemilik /var/www/your-name-project
 
 ```
 sudo chown <username>:www-data your-name-project
@@ -312,23 +312,22 @@ sudo chown <username>:www-data your-name-project
 
 ![Deploy ubuntu wihtout docker chown project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-chown-project.png)
 
-- Change access permissions to make it accessible.
+- Ubah izin akses untuk membuatnya dapat diakses.
 
 ```
-sudo apt install acl
 sudo setfacl -Rm u:www-data:rwx your-name-project
 ```
 
 ![Deploy ubuntu wihtout docker access project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-access-project.png)
 
 ### Setup NGINX for your project
-- Go to directory /etc/nginx/sites-available
+- Buka direktori /etc/nginx/sites-available.
 
 ```
 cd /etc/nginx/sites-available
 ```
 
-- Copy file default with your project name.
+- Salin file default dengan nama proyek kamu.
 
 ```
 sudo cp default your-name-project
@@ -336,7 +335,7 @@ sudo cp default your-name-project
 
 ![Deploy ubuntu wihtout docker nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-nginx-project.png)
 
-- Edit the file.
+- Mengedit file.
 
 ```
 sudo nano your-name-project
@@ -345,7 +344,7 @@ sudo nano your-name-project
 ![Deploy ubuntu wihtout docker edit nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-edit-nginx-project.png)
 
 
-- You can follow this step to replace it.
+- kamu dapat mengikuti langkah ini untuk menggantinya.
 
 ```
 server {
@@ -376,12 +375,12 @@ server {
 }
 ```
 
-your-project-name : Change with your-project-name directory.
-your-domain : Change with your domain.
+your-project-name : Ubah dengan direktori nama-proyek kamu.
+your-domain : Ubah dengan domain kamu.
 
 ![Deploy ubuntu wihtout docker edit file nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-edit-file-nginx-project.png)
 
-- Activate both configurations by creating a link file in /etc/nginx/site-enabled/.
+- Aktifkan kedua konfigurasi dengan membuat file tautan di /etc/nginx/site-enabled/.
 
 ```
 ln -s /etc/nginx/site-available/your-name-project /etc/nginx/site-enabled/your-name-project
@@ -389,20 +388,20 @@ ln -s /etc/nginx/site-available/your-name-project /etc/nginx/site-enabled/your-n
 
 ![Deploy ubuntu wihtout docker link nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-link-nginx-project.png)
 
-- Configuration test.
+- Tes konfigurasi.
 
 ```
 sudo nginx -t
 ```
 
-If the configuration is valid, you will get:
+Jika konfigurasi valid, kamu akan mendapatkan:
 
 ```
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-- Reload NGINX.
+- Muat ulang NGINX.
 
 ```
 service nginx reload
@@ -412,7 +411,7 @@ service nginx reload
 
 ### Setup environment
 
-- Copy .env.example to .env and xhange the necessary env variables.
+- Salin .env.example ke .env dan ubah variabel env yang diperlukan.
 
 ```
 cd /var/www/your-project-name
@@ -422,7 +421,7 @@ nano .env
 
 ![Deploy ubuntu wihtout docker open env](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-open-env.png)
 
-- Change the following variables, as well as other variables that you may have to change such as database, AWS, Redis, mail, pusher configs.
+- Ubah variabel berikut, serta variabel lain yang mungkin harus kamu ubah seperti database, AWS, Redis, mail, pusher configs.
 
 ```
 APP_ENV=production
@@ -438,50 +437,49 @@ FILESYSTEM_DRIVER=public
 
 ![Deploy ubuntu wihtout docker edit env](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-edit-env.png)
 
-- Run composer install for compile composer.json
+- Jalankan penginstalan komposer untuk mengkompilasi composer.json
 
 ```
 composer install
 ```
 
-- Run command to generate the key.
+- Jalankan perintah untuk menghasilkan kunci.
 
 ```
 php artisan key:generate
 ```
 
-- Run database migration.
+- Jalankan migrasi basis data.
 
 ```
 php artisan migrate
 ```
 
-- Run commmand below to generate token jwt.
-
+- Jalankan perintah di bawah untuk menghasilkan token jwt.
 ```
 php artisan jwt:secret -f
 ```
 
-- Run commmand below to generate link storage.
+- Jalankan perintah di bawah untuk menghasilkan penyimpanan tautan.
 
 ```
 php artisan storage:link
 ```
 
-- Run database seeder.
+- Jalankan seeder database.
 
 ```
 php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder"
 php artisan db:seed --class="your-seeder"
 ```
 
-- Run the following command to install all javascript of dependencies.
+- Jalankan perintah berikut untuk menginstal semua javascript dependensi.
 
 ```
 npm install
 npm run dev
 ```
 
-- Finish and you can access your project.
+- Selesai dan kamu dapat mengakses proyek kamu.
 
 ![Deploy ubuntu wihtout docker finished project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-finished-project.png)
