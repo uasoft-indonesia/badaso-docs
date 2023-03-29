@@ -72,7 +72,7 @@ In the documentation, we use mysql PHP 8.1. You can use another version.
 - Install software-properties-common, which adds management for additional software sources.
 
 ```
-sudo apt-get install software-properties-common
+sudo apt install software-properties-common
 ```
 
 - Install the repository ppa:ondrej/php, which will give you all your versions of PHP.
@@ -81,7 +81,7 @@ sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 ```
 
-- Update apt-get again so your package manager can see the newly listed packages.
+- Update apt again so your package manager can see the newly listed packages.
 
 ```
 sudo apt update
@@ -179,13 +179,13 @@ sudo nano adminer
 
 ```
 server {
-        listen 80;
-        listen [::]:80;
+        listen 3307;
+        listen [::]:3307;
 
         root /var/www/adminer;
         index index.html index.htm index.nginx-debian.html index.php;
 
-        server_name www.{your_domain} {your_domain};
+        server_name _;
 
         location / {
               try_files $uri $uri/ /index.php$is_args$args;
@@ -205,6 +205,9 @@ server {
         }
 }
 ```
+
+listen : You can change the port according to your needs. For example we use port 3307.
+server_name : You can change with your domain. Because in this example it doesn't have a domain, the server_name is left blank and we use port 3307 to access the adminer.
 
 ![Deploy ubuntu wihtout docker adminer edit file](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-adminer-edit-file.png)
 
@@ -236,6 +239,13 @@ service nginx reload
 ```
 
 ![Deploy ubuntu wihtout docker finish nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-finish-nginx-project.png)
+
+-  You can access adminer by opening your-ip:3307.
+
+```
+your-ip:3307
+```
+![Deploy ubuntu wihtout docker finish nginx project](/img/deploy-ubuntu-without-docker/deploy-ubuntu-wihtout-docker-adminer-finish.png)
 
 ## Install Composer
 - To quickly install Composer in the current directory, run the following script in your terminal. 
@@ -431,6 +441,12 @@ FILESYSTEM_DRIVER=public
 
 ```
 composer install
+```
+
+- Run command to generate the key.
+
+```
+php artisan key:generate
 ```
 
 - Run database migration.
