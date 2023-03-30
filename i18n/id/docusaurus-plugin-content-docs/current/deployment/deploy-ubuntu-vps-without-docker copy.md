@@ -477,7 +477,7 @@ php artisan db:seed --class="your-seeder"
 
 ```
 npm install
-npm run dev
+npm run prod
 ```
 
 - Selesai dan kamu dapat mengakses proyek kamu.

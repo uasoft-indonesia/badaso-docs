@@ -479,7 +479,7 @@ php artisan db:seed --class="your-seeder"
 
 ```
 npm install
-npm run dev
+npm run prod
 ```
 
 - Finish and you can access your project.
