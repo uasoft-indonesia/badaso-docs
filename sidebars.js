@@ -18,7 +18,7 @@ module.exports = {
   //   {
   //     type: 'category',
   //     label: 'Getting Started',
-  //     items: ['documentation', 'what-is', 'prerequisite', 'installation', 'upgrading', 'configuration'],
+  //     items: ['documentation', 'prerequisite', 'installation', 'upgrading', 'configuration'],
   //   },
   //   {
   //     type: 'category',

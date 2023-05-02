@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 docId: "configuration"
 ---
 
@@ -41,6 +41,31 @@ GOOGLE_DRIVE_FOLDER_ID=
 - `GOOGLE_DRIVE_REFRESH_TOKEN`: Fill in to use the backup feature to Google Drive.
 - `GOOGLE_DRIVE_FOLDER_ID`: Folder id to upload backup files into the specified folder.
 
+Add the storage disk configuration to `config/filesystem.php` :
+```md title="config/filesystem.php"
+return [
+
+    // ...
+    
+    'disks' => [
+        
+        // ...
+        
+        'drive' => [
+            'driver' => 'google',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+        ],
+        
+        // ...
+        
+    ],
+    
+    // ...
+];
+```
 ### Dropbox
 
 ```md title=".env"
@@ -48,6 +73,38 @@ DROPBOX_AUTH_TOKEN=
 ```
 
 - `GOOGLE_DRIVE_CLIENT_ID`: Fill in to use the backup feature to Dropbox.
+
+Add the storage disk configuration to `config/filesystem.php`:
+```md title="config/filesystem.php"
+return [
+
+    // ...
+    
+    'disks' => [
+        
+        // ...
+        
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'authorization_token' => env('DROPBOX_AUTH_TOKEN'),
+        ],
+        
+        // ...
+        
+    ],
+    
+    // ...
+];
+```
+
+```md title=".env"
+BACKUP_TARGET=
+BACKUP_DISK=
+```
+
+- `BACKUP_TARGET`: Fill to select target backup. Example: all, database, or files.
+- `BACKUP_DISK`: Fill to select disk backup. Example: s3, drive, dropbox.
+
 
 ## Hidden Tables
 
@@ -72,3 +129,45 @@ return [
     // add the table here
 ];
 ```
+
+## Maintenance
+
+### Maintenance with .env
+Maintenance mode makes it easy for administrators to fix, change, and add new features.  
+
+```md title=".env"
+MIX_BADASO_MAINTENANCE=false
+```
+- If `MIX_BADASO_MAINTENANCE` key doesn't exist, you can change maintenance setting in configuration menu.
+
+![key maintenance doesn't exist](https://i.postimg.cc/CLy8DgTg/key-maintenance-doesn-t-exist.png)
+
+- But if `MIX_BADASO_MAINTENANCE` key exist, you can't change in configuration menu and maintenance setting should `readonly` and you just can change in .env.
+
+![key maintenance false](https://i.postimg.cc/3RVvtMk2/key-maintenance-false.png)
+
+![key maintenance true](https://i.postimg.cc/gcLRn07s/key-maintenance-true.png)
+
+### Secret-login page
+if you are in maintenance mode, you can use `secret-login` page for login to dashboard (special for administrator)
+
+```md title=".env"
+MIX_BADASO_SECRET_LOGIN_PREFIX=badaso-secret-login
+```
+
+- `badaso-secret-login` is default value for prefix `secret-login` page. you can change as needed.
+
+### Whitelist
+Whitelist is a list for maintenance mode exception. you can change whitelist in `config/badaso.php`.
+
+```md title="config/badaso.php"
+'whitelist' => [
+        'web' => [],
+        'badaso' => [
+            '/maintenance',
+            '/login,
+        ],
+        ...
+    ],
+```
+

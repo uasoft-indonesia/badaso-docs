@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 docId: "prerequisite"
 custom_edit_url: https://github.com/uasoft-indonesia/badaso-docs/edit/main/i18n/id/docusaurus-plugin-content-docs/current/getting-started/prerequisite.md
 ---
@@ -30,6 +30,7 @@ Badaso `v1.x`
 
 Badaso `v2.x`
 - Laravel 8.x
+- Laravel 9.x
 
 Badaso `v1.x`
 - Laravel 5.x
@@ -38,12 +39,12 @@ Badaso `v1.x`
 
 ## Node
 
-- Node 12.x
+- Node ^14.x
 
 ## NPM
 
-- NPM 6.x
+- NPM ^6.x
 
 ## Yarn
 
-- Yarn 1.22.x
+- Yarn ^1.22.x

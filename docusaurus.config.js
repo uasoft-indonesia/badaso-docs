@@ -36,7 +36,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             showReadingTime: true,
             // Please change this to your repo.
             editUrl:
-              "https://github.com/facebook/docusaurus/edit/main/website/blog/",
+              "https://github.com/uasoft-indonesia/badaso-docs/edit/main/blog",
           },
           theme: {
             customCss: require.resolve("./src/css/custom.css"),
@@ -51,8 +51,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         algolia: {
           contextualSearch: true,
           appId: 'F9ZREGGLRC',
-          apiKey: "b149e29a4ae24941c2e50cd450311c9d",
-          indexName: "badaso-docs",
+          apiKey: "7584ae25ee2bd7f6229954a06cda44b7",
+          indexName: "badaso_docs",
         },
         navbar: {
           logo: {
@@ -61,6 +61,12 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             srcDark: "img/full-logo-badaso-background-black.png",
           },
           items: [
+            {
+              href: "https://www.youtube.com/playlist?list=PLO-UCDr2KEwPZPeQvjLmj-RVfNHycttPl",
+              position: "left",
+              label: "Tutorial video",
+              target: "_blank"
+            },
             {
               type: "search",
               position: "right",
