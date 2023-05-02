@@ -5,7 +5,7 @@ sidebar_position: 11
 
 # Dockerize
 
-If you already install the badaso not from [curl way](../getting-started/installation.md#via-curl--docker-recommended) and you want to dockerize your badaso application, here's the step :
+If you already install the badaso not from [curl way](../getting-started/installation#via-curl--docker-recommended) and you want to dockerize your badaso application, here's the step :
 
 - Create directory docker and go to directory docker.
 
